@@ -1,33 +1,33 @@
 ---
 const testimonials = [
   {
-    quote: "Diagonal transformó nuestra idea en un producto que superó nuestras expectativas. Profesionales de primer nivel.",
-    author: "Nombre Apellido",
-    role: "CEO, Empresa",
+    quote: "Contrataron a Diagonal para implementar una plataforma de trading que mejorara el rendimiento y la escalabilidad de nuestro sistema actual. El equipo no solo cumplió con las expectativas, sino que superó cada hito del proyecto con una ejecución impecable.",
+    author: "Lucas Garay",
+    role: "CEO, Atlas·Pay",
   },
   {
-    quote: "La calidad del código y la velocidad de entrega fueron impressionantes. Definitivamente volveremos a trabajar con ellos.",
-    author: "Nombre Apellido",
-    role: "CTO, Startup",
+    quote: "Diagonal transformó nuestra visión en un producto que superó nuestras expectativas. Su enfoque integral y atención al detalle marcaron la diferencia.",
+    author: "Sofía Martínez",
+    role: "CTO, Kuiper",
   },
   {
-    quote: "No solo desarrollaron nuestro sistema, sino que nos asesoraron en cada decisión técnica. Un socio estratégico.",
-    author: "Nombre Apellido",
-    role: "Director de TI, Corporación",
+    quote: "El equipo de Diagonal no solo desarrolló nuestro sistema, sino que nos asesoró en cada decisión técnica. Son un socio estratégico de verdad.",
+    author: "Martín López",
+    role: "Director de TI, Meridian",
   },
 ];
 ---
-<section class="py-24 px-6">
-  <div class="max-w-7xl mx-auto">
-    <p class="text-sm uppercase tracking-widest text-emerald-400 mb-4">Testimonios</p>
-    <h2 class="text-3xl md:text-4xl font-bold mb-16">Lo que dicen nuestros clientes</h2>
-    <div class="grid md:grid-cols-3 gap-8">
+<section class="py-32 border-t border-[#e6e6e6]">
+  <div class="max-w-[1400px] mx-auto px-10">
+    <div class="grid grid-cols-3 gap-8">
       {testimonials.map((t) => (
-        <blockquote class="p-8 rounded-2xl border border-zinc-800 bg-zinc-900/50">
-          <p class="text-zinc-300 leading-relaxed mb-6">"{t.quote}"</p>
-          <footer>
-            <p class="font-semibold">{t.author}</p>
-            <p class="text-sm text-zinc-500">{t.role}</p>
+        <blockquote class="flex flex-col">
+          <p class="font-inter text-base text-[#333] leading-[28px] flex-1">
+            "{t.quote}"
+          </p>
+          <footer class="mt-8 pt-6 border-t border-[#e6e6e6]">
+            <p class="font-inter font-medium text-sm text-black">{t.author}</p>
+            <p class="font-inter text-sm text-[#666]">{t.role}</p>
           </footer>
         </blockquote>
       ))}

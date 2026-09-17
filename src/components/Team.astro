@@ -1,31 +1,45 @@
 ---
 const team = [
   {
-    name: "Nombre Apellido",
-    role: "Fundador & Lead Developer",
+    name: "Sol Ramirez",
+    role: "Design Lead",
+    image: "/team/sol.jpg",
   },
   {
-    name: "Nombre Apellido",
-    role: "Diseñador UX/UI",
+    name: "Iván Costa",
+    role: "Engineering",
+    image: "/team/ivan.jpg",
   },
   {
-    name: "Nombre Apellido",
-    role: "Full Stack Developer",
+    name: "Team HQ",
+    role: "Estudio completo",
+    image: "/team/hq.jpg",
+  },
+  {
+    name: "Nina Ortiz",
+    role: "Cloud DevOps",
+    image: "/team/nina.jpg",
   },
 ];
 ---
-<section id="equipo" class="py-24 px-6">
-  <div class="max-w-7xl mx-auto">
-    <p class="text-sm uppercase tracking-widest text-emerald-400 mb-4">Equipo</p>
-    <h2 class="text-3xl md:text-4xl font-bold mb-16">Las personas detrás del código</h2>
-    <div class="grid md:grid-cols-3 gap-8">
+<section id="equipo" class="py-32 border-t border-[#e6e6e6]">
+  <div class="max-w-[1400px] mx-auto px-10">
+    <div class="flex items-end justify-between">
+      <div>
+        <p class="font-mono text-xs tracking-[2.16px] uppercase text-[#666]">— Equipo</p>
+        <h2 class="font-archivo font-black text-[96px] leading-[96px] uppercase mt-4">El estudio<br />completo</h2>
+      </div>
+    </div>
+    <div class="grid grid-cols-4 gap-4 mt-16">
       {team.map((member) => (
-        <div class="text-center">
-          <div class="w-32 h-32 mx-auto rounded-full bg-zinc-800 mb-6 flex items-center justify-center">
-            <span class="text-4xl text-zinc-600">👤</span>
+        <div class="group">
+          <div class="aspect-[4/5] bg-[#e6e6e6] overflow-hidden relative">
+            <div class="absolute inset-0 bg-gradient-to-br from-zinc-200 to-zinc-300 group-hover:scale-105 transition-transform duration-500"></div>
           </div>
-          <h3 class="text-lg font-semibold">{member.name}</h3>
-          <p class="text-sm text-zinc-500">{member.role}</p>
+          <div class="mt-4">
+            <p class="font-inter font-medium text-sm">{member.name}</p>
+            <p class="font-inter text-sm text-[#666]">{member.role}</p>
+          </div>
         </div>
       ))}
     </div>

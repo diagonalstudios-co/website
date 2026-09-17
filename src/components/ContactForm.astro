@@ -1,52 +1,77 @@
 ---
 ---
-<section id="contacto" class="py-24 px-6">
-  <div class="max-w-2xl mx-auto text-center">
-    <p class="text-sm uppercase tracking-widest text-emerald-400 mb-4">Contacto</p>
-    <h2 class="text-3xl md:text-4xl font-bold mb-6">¿Tenés un proyecto en mente?</h2>
-    <p class="text-zinc-400 mb-12">Contanos tu idea y te ayudamos a convertirla en realidad.</p>
-    <form class="space-y-6 text-left">
-      <div class="grid md:grid-cols-2 gap-6">
-        <div>
-          <label for="name" class="block text-sm font-medium mb-2">Nombre</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            required
-            class="w-full px-4 py-3 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-emerald-500 transition-colors"
-            placeholder="Tu nombre"
-          />
-        </div>
-        <div>
-          <label for="email" class="block text-sm font-medium mb-2">Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            required
-            class="w-full px-4 py-3 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-emerald-500 transition-colors"
-            placeholder="tu@email.com"
-          />
-        </div>
+<section id="contacto" class="py-32 bg-black">
+  <div class="max-w-[1400px] mx-auto px-10">
+    <div class="grid grid-cols-2 gap-16">
+      <div>
+        <p class="font-mono text-xs tracking-[2.16px] uppercase text-white/50">— Contacto</p>
+        <h2 class="font-archivo font-black text-[72px] leading-[61.2px] uppercase text-white mt-4">
+          Empecemos<br />tu proyecto
+        </h2>
+        <p class="font-inter text-lg text-white/60 mt-8 max-w-[448px]">
+          Contanos tu idea y te ayudamos a convertirla en realidad. Sin compromisos, solo una conversación honesta.
+        </p>
       </div>
       <div>
-        <label for="message" class="block text-sm font-medium mb-2">Mensaje</label>
-        <textarea
-          id="message"
-          name="message"
-          rows="5"
-          required
-          class="w-full px-4 py-3 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-emerald-500 transition-colors resize-none"
-          placeholder="Contanos sobre tu proyecto..."
-        ></textarea>
+        <form class="space-y-6">
+          <div class="grid grid-cols-2 gap-6">
+            <div>
+              <label for="name" class="block font-mono text-xs tracking-[2.16px] uppercase text-white/50 mb-3">Nombre</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                class="w-full bg-transparent border-b border-white/20 pb-3 font-inter text-white placeholder-white/30 focus:outline-none focus:border-white/60 transition-colors"
+                placeholder="Tu nombre"
+              />
+            </div>
+            <div>
+              <label for="email" class="block font-mono text-xs tracking-[2.16px] uppercase text-white/50 mb-3">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                class="w-full bg-transparent border-b border-white/20 pb-3 font-inter text-white placeholder-white/30 focus:outline-none focus:border-white/60 transition-colors"
+                placeholder="tu@email.com"
+              />
+            </div>
+          </div>
+          <div>
+            <label for="project" class="block font-mono text-xs tracking-[2.16px] uppercase text-white/50 mb-3">Tipo de proyecto</label>
+            <select
+              id="project"
+              name="project"
+              class="w-full bg-transparent border-b border-white/20 pb-3 font-inter text-white focus:outline-none focus:border-white/60 transition-colors appearance-none"
+            >
+              <option value="" class="bg-black">Seleccioná una opción</option>
+              <option value="web" class="bg-black">Sitio web</option>
+              <option value="app" class="bg-black">Aplicación web</option>
+              <option value="mobile" class="bg-black">App móvil</option>
+              <option value="saas" class="bg-black">Producto SaaS</option>
+              <option value="other" class="bg-black">Otro</option>
+            </select>
+          </div>
+          <div>
+            <label for="message" class="block font-mono text-xs tracking-[2.16px] uppercase text-white/50 mb-3">Mensaje</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="4"
+              required
+              class="w-full bg-transparent border-b border-white/20 pb-3 font-inter text-white placeholder-white/30 focus:outline-none focus:border-white/60 transition-colors resize-none"
+              placeholder="Contanos sobre tu proyecto..."
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            class="w-full mt-8 px-8 py-4 bg-white text-black font-mono text-xs tracking-[2.16px] uppercase hover:bg-white/90 transition-colors cursor-pointer"
+          >
+            Enviar mensaje
+          </button>
+        </form>
       </div>
-      <button
-        type="submit"
-        class="w-full px-8 py-3.5 text-sm font-semibold bg-emerald-500 text-zinc-950 rounded-lg hover:bg-emerald-400 transition-colors cursor-pointer"
-      >
-        Enviar mensaje
-      </button>
-    </form>
+    </div>
   </div>
 </section>

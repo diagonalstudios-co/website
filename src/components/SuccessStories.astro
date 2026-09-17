@@ -1,39 +1,60 @@
 ---
 const stories = [
   {
-    title: "E-commerce para marca de retail",
-    description: "Plataforma de ventas online con integración de pagos y gestión de inventario.",
-    tags: ["E-commerce", "Next.js", "Node.js"],
+    number: "01",
+    category: "Fintech · Web + API",
+    title: "Atlas·Pay",
+    metric: "+40%",
+    metricDescription: "conversión de checkout",
+    image: "/projects/atlas-pay.jpg",
   },
   {
-    title: "App de gestión para PyMEs",
-    description: "Sistema integral de administración con panel de control y reportes en tiempo real.",
-    tags: ["SaaS", "React", "PostgreSQL"],
+    number: "02",
+    category: "SaaS · Plataforma B2B",
+    title: "Kuiper",
+    metric: "8 sem",
+    metricDescription: "de idea a MVP en producción",
+    image: "/projects/kuiper.jpg",
   },
   {
-    title: "Plataforma educativa",
-    description: "LMS con video streaming, evaluaciones y seguimiento de progreso.",
-    tags: ["EdTech", "Astro", "Supabase"],
+    number: "03",
+    category: "Salud · App + Cloud",
+    title: "Meridian",
+    metric: "99.98%",
+    metricDescription: "uptime en el primer año",
+    image: "/projects/meridian.jpg",
   },
 ];
 ---
-<section id="proyectos" class="py-24 px-6">
-  <div class="max-w-7xl mx-auto">
-    <p class="text-sm uppercase tracking-widest text-emerald-400 mb-4">Casos de éxito</p>
-    <h2 class="text-3xl md:text-4xl font-bold mb-16">Proyectos que hablan por nosotros</h2>
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+<section id="proyectos" class="py-32 border-t border-[#e6e6e6]">
+  <div class="max-w-[1400px] mx-auto px-10">
+    <div class="flex items-end justify-between">
+      <div>
+        <p class="font-mono text-xs tracking-[2.16px] uppercase text-[#666]">— Resultados</p>
+        <h2 class="font-archivo font-black text-[96px] leading-[96px] uppercase mt-4">Casos de éxito</h2>
+      </div>
+      <a href="#" class="font-mono text-xs tracking-[2.16px] uppercase text-black hover:opacity-70 transition-opacity">
+        Ver todos los casos →
+      </a>
+    </div>
+    <div class="grid grid-cols-3 gap-px bg-[#e6e6e6] mt-16">
       {stories.map((story) => (
-        <article class="group p-6 rounded-2xl border border-zinc-800 hover:border-emerald-500/50 transition-all">
-          <div class="h-48 bg-zinc-800 rounded-xl mb-6 flex items-center justify-center">
-            <span class="text-zinc-600 text-sm">Preview</span>
+        <article class="bg-white p-6 group">
+          <div class="bg-[#e6e6e6] h-[293px] relative overflow-hidden mb-6">
+            <div class="absolute inset-0 bg-gradient-to-br from-zinc-200 to-zinc-300"></div>
+            <div class="absolute top-0 left-0 bg-black px-3 py-1">
+              <span class="font-mono text-[10px] tracking-[1.8px] uppercase text-white">{story.number}</span>
+            </div>
           </div>
-          <h3 class="text-xl font-semibold mb-3 group-hover:text-emerald-400 transition-colors">{story.title}</h3>
-          <p class="text-zinc-400 text-sm leading-relaxed mb-4">{story.description}</p>
-          <div class="flex flex-wrap gap-2">
-            {story.tags.map((tag) => (
-              <span class="text-xs px-3 py-1 rounded-full bg-zinc-800 text-zinc-400">{tag}</span>
-            ))}
+          <p class="font-mono text-xs tracking-[2.16px] uppercase text-[#666]">{story.category}</p>
+          <h3 class="font-archivo font-extrabold text-[24px] leading-[32px] uppercase mt-1">{story.title}</h3>
+          <div class="border-t border-[#e6e6e6] mt-6 pt-5">
+            <p class="font-archivo font-black text-[48px] leading-[48px]">{story.metric}</p>
+            <p class="font-inter text-sm text-[#666] mt-2">{story.metricDescription}</p>
           </div>
+          <a href="#" class="inline-flex items-center gap-2 mt-6 font-mono text-xs tracking-[2.16px] uppercase text-black hover:opacity-70 transition-opacity">
+            Ver caso completo →
+          </a>
         </article>
       ))}
     </div>
