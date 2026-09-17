@@ -1,0 +1,64 @@
+---
+interface Props {
+  class?: string;
+  rings?: boolean;
+}
+
+const { class: className = "", rings = true } = Astro.props;
+
+const NODES = [
+  { x: 90, y: 70 },
+  { x: 210, y: 40 },
+  { x: 320, y: 120 },
+  { x: 150, y: 180 },
+  { x: 265, y: 210 },
+  { x: 60, y: 250 },
+  { x: 360, y: 260 },
+  { x: 190, y: 300 },
+  { x: 300, y: 350 },
+  { x: 110, y: 360 },
+  { x: 240, y: 130 },
+  { x: 40, y: 150 },
+];
+
+const LINKS: [number, number][] = [
+  [0, 1], [1, 10], [10, 2], [0, 3], [3, 4], [4, 2],
+  [3, 5], [5, 9], [4, 7], [7, 8], [8, 6], [6, 2],
+  [7, 9], [11, 0], [11, 5], [10, 4], [8, 4],
+];
+---
+<svg
+  viewBox="0 0 400 400"
+  fill="none"
+  class:list={[className]}
+  aria-hidden="true"
+>
+  {rings && (
+    <g class="slow-spin" opacity={0.5}>
+      <circle cx="200" cy="200" r="150" stroke="currentColor" stroke-width="0.6" />
+      <circle cx="200" cy="200" r="110" stroke="currentColor" stroke-width="0.6" class="dash-flow" />
+      <circle cx="200" cy="200" r="185" stroke="currentColor" stroke-width="0.4" opacity={0.5} />
+    </g>
+  )}
+
+  <g stroke="currentColor" stroke-width="0.8" opacity={0.55}>
+    {LINKS.map(([a, b], i) => (
+      <line x1={NODES[a].x} y1={NODES[a].y} x2={NODES[b].x} y2={NODES[b].y} />
+    ))}
+  </g>
+
+  <g fill="currentColor">
+    {NODES.map((n, i) => (
+      <g>
+        <circle cx={n.x} cy={n.y} r="7" fill="none" stroke="currentColor" stroke-width="0.5" opacity={0.4} />
+        <circle
+          cx={n.x}
+          cy={n.y}
+          r="2.6"
+          class="node-pulse"
+          style={`animation-delay: ${(i % 6) * 0.4}s`}
+        />
+      </g>
+    ))}
+  </g>
+</svg>

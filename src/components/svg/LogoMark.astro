@@ -1,0 +1,33 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className = "" } = Astro.props;
+---
+<svg viewBox="0 0 100 100" class:list={[className]} aria-hidden="true">
+  <defs>
+    <mask id="diagonal-arrow">
+      <rect x="0" y="0" width="100" height="100" fill="white" />
+      <path
+        d="M28 74 L64 38"
+        stroke="black"
+        stroke-width="6"
+        stroke-linecap="square"
+        fill="none"
+      />
+      <path
+        d="M46 38 H64 V56"
+        stroke="black"
+        stroke-width="6"
+        stroke-linejoin="miter"
+        fill="none"
+      />
+    </mask>
+  </defs>
+  <path
+    d="M18 8 H44 A42 42 0 0 1 44 92 H18 Z"
+    fill="currentColor"
+    mask="url(#diagonal-arrow)"
+  />
+</svg>
