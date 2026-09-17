@@ -1,6 +1,4 @@
 ---
-import logoUrl from "./svg/logo.svg";
-
 const NAV = [
   { label: "Home", href: "#top" },
   { label: "Proceso", href: "#proceso" },
@@ -11,7 +9,9 @@ const NAV = [
 <header class="fixed inset-x-0 top-0 z-50 transition-colors duration-500 bg-ink/95 text-paper backdrop-blur" id="navbar">
   <div class="mx-auto flex max-w-[1400px] items-center justify-between gap-6 px-6 py-4 md:px-10">
     <a href="#top" class="group flex items-center gap-3">
-      <img src={logoUrl} alt="" class="h-7 w-auto transition-transform duration-500 group-hover:rotate-6" />
+      <svg width="100" height="107" viewBox="0 0 100 107" fill="none" class="h-7 w-auto transition-transform duration-500 group-hover:rotate-6" aria-hidden="true">
+        <path d="M0 5.95529V91.8677L49.4152 40.8084H33.7232V28.4097H71.6374V66.6797H58.7719V50.5712L3.60624 107H50.5848C89.5712 103.017 99.7726 70.1293 100 54.1834C99.7661 14.4294 68.1287 1.49696 52.3392 0H5.16569C1.03314 0.859124 0 4.32816 0 5.95529Z" fill="white"/>
+      </svg>
       <span class="font-display text-lg font-extrabold tracking-tight" style="font-stretch: 75%">
         DIAGONAL <span class="font-medium text-current/70">STUDIOS</span>
       </span>
