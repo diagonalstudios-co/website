@@ -1,0 +1,39 @@
+---
+const steps = [
+  {
+    number: "01",
+    title: "Descubrimiento",
+    description: "Entendemos tu negocio, tus usuarios y tus objetivos para definir la mejor estrategia.",
+  },
+  {
+    number: "02",
+    title: "Diseño & Prototipado",
+    description: "Diseñamos la experiencia del usuario y validamos antes de escribir una sola línea de código.",
+  },
+  {
+    number: "03",
+    title: "Desarrollo",
+    description: "Construimos con tecnologías modernas, iterando rápido y manteniendo alta calidad.",
+  },
+  {
+    number: "04",
+    title: "Lanzamiento & Iteración",
+    description: "Deploy, monitoreo y mejora continua. Tu producto evoluciona con tus necesidades.",
+  },
+];
+---
+<section class="py-24 px-6">
+  <div class="max-w-7xl mx-auto">
+    <p class="text-sm uppercase tracking-widest text-emerald-400 mb-4">Cómo trabajamos</p>
+    <h2 class="text-3xl md:text-4xl font-bold mb-16">De la idea al producto, paso a paso</h2>
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {steps.map((step) => (
+        <div class="p-6 rounded-2xl border border-zinc-800 hover:border-zinc-700 transition-colors">
+          <span class="text-4xl font-bold text-emerald-400/20">{step.number}</span>
+          <h3 class="text-xl font-semibold mt-4 mb-3">{step.title}</h3>
+          <p class="text-zinc-400 text-sm leading-relaxed">{step.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

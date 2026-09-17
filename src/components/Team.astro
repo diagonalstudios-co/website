@@ -1,0 +1,33 @@
+---
+const team = [
+  {
+    name: "Nombre Apellido",
+    role: "Fundador & Lead Developer",
+  },
+  {
+    name: "Nombre Apellido",
+    role: "Diseñador UX/UI",
+  },
+  {
+    name: "Nombre Apellido",
+    role: "Full Stack Developer",
+  },
+];
+---
+<section id="equipo" class="py-24 px-6">
+  <div class="max-w-7xl mx-auto">
+    <p class="text-sm uppercase tracking-widest text-emerald-400 mb-4">Equipo</p>
+    <h2 class="text-3xl md:text-4xl font-bold mb-16">Las personas detrás del código</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      {team.map((member) => (
+        <div class="text-center">
+          <div class="w-32 h-32 mx-auto rounded-full bg-zinc-800 mb-6 flex items-center justify-center">
+            <span class="text-4xl text-zinc-600">👤</span>
+          </div>
+          <h3 class="text-lg font-semibold">{member.name}</h3>
+          <p class="text-sm text-zinc-500">{member.role}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

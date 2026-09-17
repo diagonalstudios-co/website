@@ -1,0 +1,49 @@
+---
+const services = [
+  {
+    title: "Sitios web",
+    description: "Landing pages, sitios institucionales y presencias digitales de alto impacto.",
+    icon: "🌐",
+  },
+  {
+    title: "Aplicaciones web",
+    description: "Apps complejas con dashboards, paneles administrativos y lógica de negocio.",
+    icon: "⚡",
+  },
+  {
+    title: "Aplicaciones móviles",
+    description: "Apps nativas e híbridas para iOS y Android.",
+    icon: "📱",
+  },
+  {
+    title: "Sistemas a medida",
+    description: "Software tailor-made que se adapta a tus procesos, no al revés.",
+    icon: "⚙️",
+  },
+  {
+    title: "E-commerce",
+    description: "Tiendas online con pasarelas de pago, inventario y analytics.",
+    icon: "🛒",
+  },
+  {
+    title: "Productos SaaS",
+    description: "Plataformas escalables con suscripción, multi-tenant y más.",
+    icon: "☁️",
+  },
+];
+---
+<section id="servicios" class="py-24 px-6">
+  <div class="max-w-7xl mx-auto">
+    <p class="text-sm uppercase tracking-widest text-emerald-400 mb-4">Servicios</p>
+    <h2 class="text-3xl md:text-4xl font-bold mb-16">Soluciones integrales de punta a punta</h2>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {services.map((service) => (
+        <div class="p-8 rounded-2xl border border-zinc-800 hover:border-zinc-700 transition-colors group">
+          <span class="text-3xl">{service.icon}</span>
+          <h3 class="text-xl font-semibold mt-4 mb-3 group-hover:text-emerald-400 transition-colors">{service.title}</h3>
+          <p class="text-zinc-400 text-sm leading-relaxed">{service.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

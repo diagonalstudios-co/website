@@ -1,0 +1,41 @@
+---
+const stories = [
+  {
+    title: "E-commerce para marca de retail",
+    description: "Plataforma de ventas online con integración de pagos y gestión de inventario.",
+    tags: ["E-commerce", "Next.js", "Node.js"],
+  },
+  {
+    title: "App de gestión para PyMEs",
+    description: "Sistema integral de administración con panel de control y reportes en tiempo real.",
+    tags: ["SaaS", "React", "PostgreSQL"],
+  },
+  {
+    title: "Plataforma educativa",
+    description: "LMS con video streaming, evaluaciones y seguimiento de progreso.",
+    tags: ["EdTech", "Astro", "Supabase"],
+  },
+];
+---
+<section id="proyectos" class="py-24 px-6">
+  <div class="max-w-7xl mx-auto">
+    <p class="text-sm uppercase tracking-widest text-emerald-400 mb-4">Casos de éxito</p>
+    <h2 class="text-3xl md:text-4xl font-bold mb-16">Proyectos que hablan por nosotros</h2>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {stories.map((story) => (
+        <article class="group p-6 rounded-2xl border border-zinc-800 hover:border-emerald-500/50 transition-all">
+          <div class="h-48 bg-zinc-800 rounded-xl mb-6 flex items-center justify-center">
+            <span class="text-zinc-600 text-sm">Preview</span>
+          </div>
+          <h3 class="text-xl font-semibold mb-3 group-hover:text-emerald-400 transition-colors">{story.title}</h3>
+          <p class="text-zinc-400 text-sm leading-relaxed mb-4">{story.description}</p>
+          <div class="flex flex-wrap gap-2">
+            {story.tags.map((tag) => (
+              <span class="text-xs px-3 py-1 rounded-full bg-zinc-800 text-zinc-400">{tag}</span>
+            ))}
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

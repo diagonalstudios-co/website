@@ -1,0 +1,19 @@
+---
+const clients = [
+  "Cliente 1",
+  "Cliente 2",
+  "Cliente 3",
+  "Cliente 4",
+  "Cliente 5",
+];
+---
+<section class="py-20 px-6 border-y border-zinc-800">
+  <div class="max-w-7xl mx-auto">
+    <p class="text-sm uppercase tracking-widest text-zinc-500 text-center mb-10">Confían en nosotros</p>
+    <div class="flex flex-wrap items-center justify-center gap-12 md:gap-20">
+      {clients.map((client) => (
+        <span class="text-xl md:text-2xl font-semibold text-zinc-600">{client}</span>
+      ))}
+    </div>
+  </div>
+</section>

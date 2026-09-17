@@ -1,0 +1,36 @@
+---
+const testimonials = [
+  {
+    quote: "Diagonal transformó nuestra idea en un producto que superó nuestras expectativas. Profesionales de primer nivel.",
+    author: "Nombre Apellido",
+    role: "CEO, Empresa",
+  },
+  {
+    quote: "La calidad del código y la velocidad de entrega fueron impressionantes. Definitivamente volveremos a trabajar con ellos.",
+    author: "Nombre Apellido",
+    role: "CTO, Startup",
+  },
+  {
+    quote: "No solo desarrollaron nuestro sistema, sino que nos asesoraron en cada decisión técnica. Un socio estratégico.",
+    author: "Nombre Apellido",
+    role: "Director de TI, Corporación",
+  },
+];
+---
+<section class="py-24 px-6">
+  <div class="max-w-7xl mx-auto">
+    <p class="text-sm uppercase tracking-widest text-emerald-400 mb-4">Testimonios</p>
+    <h2 class="text-3xl md:text-4xl font-bold mb-16">Lo que dicen nuestros clientes</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      {testimonials.map((t) => (
+        <blockquote class="p-8 rounded-2xl border border-zinc-800 bg-zinc-900/50">
+          <p class="text-zinc-300 leading-relaxed mb-6">"{t.quote}"</p>
+          <footer>
+            <p class="font-semibold">{t.author}</p>
+            <p class="text-sm text-zinc-500">{t.role}</p>
+          </footer>
+        </blockquote>
+      ))}
+    </div>
+  </div>
+</section>
