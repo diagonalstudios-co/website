@@ -38,6 +38,45 @@ const { title, description = "Diagonal Studios — Estudio de desarrollo de soft
           { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
         );
         els.forEach((el) => io.observe(el));
+
+        // Counter animation
+        const counters = Array.from(document.querySelectorAll<HTMLElement>(".counter-value"));
+        if (counters.length === 0) return;
+
+        const easeOutQuart = (t: number) => 1 - Math.pow(1 - t, 4);
+
+        const animateCounter = (el: HTMLElement) => {
+          const prefix = el.dataset.prefix ?? "";
+          const target = parseFloat(el.dataset.target ?? "0");
+          const suffix = el.dataset.suffix ?? "";
+          const decimals = parseInt(el.dataset.decimals ?? "0");
+          const duration = 2000;
+          const start = performance.now();
+
+          const step = (now: number) => {
+            const elapsed = now - start;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = easeOutQuart(progress);
+            const current = eased * target;
+            el.childNodes[0].textContent = prefix + current.toFixed(decimals) + suffix;
+            if (progress < 1) requestAnimationFrame(step);
+          };
+
+          requestAnimationFrame(step);
+        };
+
+        const counterIO = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                animateCounter(entry.target as HTMLElement);
+                counterIO.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.3 }
+        );
+        counters.forEach((el) => counterIO.observe(el));
       });
     </script>
   </body>
