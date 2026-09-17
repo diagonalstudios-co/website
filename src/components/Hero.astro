@@ -1,21 +1,71 @@
 ---
 ---
-<section class="min-h-screen flex items-center justify-center px-6 pt-24">
-  <div class="max-w-4xl text-center">
-    <p class="text-sm uppercase tracking-widest text-emerald-400 mb-6">Estudio de desarrollo de software</p>
-    <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-8">
-      Construimos productos<br />digitales que importan
-    </h1>
-    <p class="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto mb-12">
-      Soluciones de software de punta a punta para empresas, startups y organizaciones que buscan impacto real.
-    </p>
-    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-      <a href="#contacto" class="px-8 py-3.5 text-sm font-semibold bg-emerald-500 text-zinc-950 rounded-lg hover:bg-emerald-400 transition-colors">
+<section class="relative min-h-screen flex items-center justify-center px-10 overflow-hidden bg-black">
+  <div class="absolute inset-0" id="stars-container"></div>
+  <div class="relative z-10 max-w-[1400px] mx-auto w-full">
+    <div class="max-w-[900px]">
+      <p class="font-mono text-xs tracking-[2.16px] uppercase text-white/50 mb-6">— Diagonal Studios</p>
+      <h1 class="font-archivo font-black text-[80px] md:text-[120px] leading-[0.9] uppercase text-white tracking-tight">
+        De la idea<br />al lanzamiento
+      </h1>
+      <p class="font-archivo font-black text-[80px] md:text-[120px] leading-[0.9] uppercase text-white/30 tracking-tight mt-2">
+        —sin intermediarios.
+      </p>
+    </div>
+    <div class="mt-16 flex items-center gap-8">
+      <a href="#contacto" class="inline-flex px-8 py-4 bg-white text-black font-mono text-xs tracking-[2.16px] uppercase hover:bg-white/90 transition-colors">
         Empezá tu proyecto
       </a>
-      <a href="#proyectos" class="px-8 py-3.5 text-sm font-semibold border border-zinc-700 rounded-lg hover:border-zinc-500 transition-colors">
+      <a href="#proyectos" class="inline-flex px-8 py-4 border border-white/30 text-white font-mono text-xs tracking-[2.16px] uppercase hover:border-white/60 transition-colors">
         Ver trabajos
       </a>
     </div>
   </div>
+
+  <script>
+    const container = document.getElementById('stars-container');
+    if (container) {
+      for (let i = 0; i < 80; i++) {
+        const star = document.createElement('div');
+        star.className = 'absolute rounded-full bg-white';
+        const size = Math.random() * 2 + 1;
+        star.style.width = `${size}px`;
+        star.style.height = `${size}px`;
+        star.style.left = `${Math.random() * 100}%`;
+        star.style.top = `${Math.random() * 100}%`;
+        star.style.opacity = `${Math.random() * 0.5 + 0.1}`;
+        container.appendChild(star);
+      }
+
+      const lines = [
+        { x1: 15, y1: 20, x2: 25, y2: 35 },
+        { x1: 30, y1: 15, x2: 45, y2: 28 },
+        { x1: 50, y1: 10, x2: 60, y2: 25 },
+        { x1: 70, y1: 20, x2: 80, y2: 40 },
+        { x1: 20, y1: 60, x2: 35, y2: 75 },
+        { x1: 55, y1: 55, x2: 65, y2: 70 },
+        { x1: 75, y1: 50, x2: 85, y2: 65 },
+        { x1: 10, y1: 40, x2: 20, y2: 55 },
+        { x1: 40, y1: 35, x2: 55, y2: 50 },
+        { x1: 65, y1: 30, x2: 75, y2: 45 },
+      ];
+
+      const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      svg.setAttribute('class', 'absolute inset-0 w-full h-full');
+      svg.setAttribute('style', 'opacity: 0.15');
+
+      lines.forEach(line => {
+        const l = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        l.setAttribute('x1', `${line.x1}%`);
+        l.setAttribute('y1', `${line.y1}%`);
+        l.setAttribute('x2', `${line.x2}%`);
+        l.setAttribute('y2', `${line.y2}%`);
+        l.setAttribute('stroke', 'white');
+        l.setAttribute('stroke-width', '0.5');
+        svg.appendChild(l);
+      });
+
+      container.appendChild(svg);
+    }
+  </script>
 </section>
