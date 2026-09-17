@@ -2,36 +2,54 @@
 const steps = [
   {
     number: "01",
-    title: "Descubrimiento",
-    description: "Entendemos tu negocio, tus usuarios y tus objetivos para definir la mejor estrategia.",
+    title: "Diseño",
+    description: "Investigación, UX y una interfaz que ya se ve como el producto final.",
   },
   {
     number: "02",
-    title: "Diseño & Prototipado",
-    description: "Diseñamos la experiencia del usuario y validamos antes de escribir una sola línea de código.",
+    title: "Desarrollo",
+    description: "Frontend y backend construidos por el mismo equipo que lo diseñó.",
   },
   {
     number: "03",
-    title: "Desarrollo",
-    description: "Construimos con tecnologías modernas, iterando rápido y manteniendo alta calidad.",
+    title: "Implementación",
+    description: "Infraestructura, despliegue y puesta en producción sin traspasos.",
   },
   {
     number: "04",
-    title: "Lanzamiento & Iteración",
-    description: "Deploy, monitoreo y mejora continua. Tu producto evoluciona con tus necesidades.",
+    title: "Soporte",
+    description: "Monitoreo, iteración y evolución continua después del lanzamiento.",
   },
 ];
 ---
-<section class="py-24 px-6">
-  <div class="max-w-7xl mx-auto">
-    <p class="text-sm uppercase tracking-widest text-emerald-400 mb-4">Cómo trabajamos</p>
-    <h2 class="text-3xl md:text-4xl font-bold mb-16">De la idea al producto, paso a paso</h2>
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-      {steps.map((step) => (
-        <div class="p-6 rounded-2xl border border-zinc-800 hover:border-zinc-700 transition-colors">
-          <span class="text-4xl font-bold text-emerald-400/20">{step.number}</span>
-          <h3 class="text-xl font-semibold mt-4 mb-3">{step.title}</h3>
-          <p class="text-zinc-400 text-sm leading-relaxed">{step.description}</p>
+<section class="py-32">
+  <div class="max-w-[1400px] mx-auto px-10">
+    <div class="flex items-end justify-between">
+      <div>
+        <h2 class="font-archivo font-black text-[72px] leading-[61.2px] uppercase">
+          Cómo<br />trabajamos
+        </h2>
+      </div>
+      <div class="max-w-[448px]">
+        <p class="font-inter text-base text-[#666] leading-[24px]">
+          Un solo flujo continuo. Cada etapa la ejecuta el mismo estudio, así el conocimiento nunca se pierde en un traspaso.
+        </p>
+      </div>
+    </div>
+    <div class="grid grid-cols-4 gap-0 mt-16">
+      {steps.map((step, i) => (
+        <div class:list={[
+          "border-l border-[#ccc] pl-6 pr-4 pt-8 relative min-h-[320px]",
+          i === 0 && "border-l-[3px] border-l-black"
+        ]}>
+          {i === 0 && (
+            <div class="absolute left-[-5px] top-[-5px] w-[9px] h-[9px] bg-black"></div>
+          )}
+          <p class="font-archivo font-black text-[96px] leading-[96px] text-[#e6e6e6] absolute top-8 left-6">{step.number}</p>
+          <div class="relative pt-[108px]">
+            <h3 class="font-archivo font-extrabold text-[30px] leading-[36px] uppercase">{step.title}</h3>
+            <p class="font-inter text-sm text-[#666] leading-[22.75px] mt-3 w-[240px]">{step.description}</p>
+          </div>
         </div>
       ))}
     </div>

@@ -1,19 +1,47 @@
 ---
 const clients = [
-  "Cliente 1",
-  "Cliente 2",
-  "Cliente 3",
-  "Cliente 4",
-  "Cliente 5",
+  "NÓRDICO",
+  "Vértice",
+  "Atlas·Pay",
+  "Kuiper",
+  "Meridian",
+  "FormaLab",
+  "Öhm",
+  "Cardinal",
+  "Delta9",
+  "Sena",
 ];
 ---
-<section class="py-20 px-6 border-y border-zinc-800">
-  <div class="max-w-7xl mx-auto">
-    <p class="text-sm uppercase tracking-widest text-zinc-500 text-center mb-10">Confían en nosotros</p>
-    <div class="flex flex-wrap items-center justify-center gap-12 md:gap-20">
-      {clients.map((client) => (
-        <span class="text-xl md:text-2xl font-semibold text-zinc-600">{client}</span>
+<section class="py-20 border-b border-[#e6e6e6]">
+  <div class="max-w-[1400px] mx-auto px-10">
+    <div class="flex items-end justify-between">
+      <div>
+        <p class="font-mono text-xs tracking-[2.16px] uppercase text-[#666]">— Confianza</p>
+        <h2 class="font-archivo font-extrabold text-[48px] leading-[48px] uppercase mt-4">
+          Marcas que confían<br />en nosotros
+        </h2>
+      </div>
+      <div class="flex items-baseline gap-4">
+        <span class="font-archivo font-black text-[72px] leading-[72px]">+30</span>
+        <span class="font-inter text-sm text-[#666]">marcas y contando</span>
+      </div>
+    </div>
+  </div>
+  <div class="mt-14 border-y border-[#e6e6e6] py-6 overflow-hidden">
+    <div class="flex gap-16 animate-marquee whitespace-nowrap">
+      {[...clients, ...clients].map((client) => (
+        <span class="font-archivo font-bold text-[30px] tracking-[-0.75px] uppercase text-[#ccc]">{client}</span>
       ))}
     </div>
   </div>
+
+  <style>
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-marquee {
+      animation: marquee 30s linear infinite;
+    }
+  </style>
 </section>
