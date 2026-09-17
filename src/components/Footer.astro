@@ -1,5 +1,5 @@
 ---
-import LogoMark from "./svg/LogoMark.astro";
+import logoUrl from "./svg/logo.svg";
 
 const NAV = [
   { label: "Home", href: "#top" },
@@ -13,7 +13,7 @@ const NAV = [
     <div class="grid gap-12 border-t border-paper/15 py-16 md:grid-cols-[2fr_1fr_1fr]">
       <div>
         <a href="#top" class="flex items-center gap-3">
-          <LogoMark class="h-8 w-8" />
+          <img src={logoUrl} alt="" class="h-8 w-auto" />
           <span class="font-display text-xl font-extrabold" style="font-stretch: 75%">
             DIAGONAL STUDIOS
           </span>
@@ -39,7 +39,7 @@ const NAV = [
       <div>
         <p class="mb-5 font-mono text-xs uppercase tracking-[0.18em] text-paper/40">Redes</p>
         <ul class="space-y-3">
-          {["Instagram", "LinkedIn", "GitHub", "Dribbble"].map((s) => (
+          {["Instagram", "LinkedIn"].map((s) => (
             <li>
               <a href="#" class="group inline-flex items-center gap-2 text-paper/70 transition-colors hover:text-paper">
                 {s}
@@ -53,8 +53,8 @@ const NAV = [
 
     <div class="flex flex-col gap-3 border-t border-paper/15 py-8 font-mono text-xs uppercase tracking-[0.14em] text-paper/40 md:flex-row md:items-center md:justify-between">
       <span>© 2026 Diagonal Studios</span>
-      <span>hola@diagonalstudios.co</span>
-      <span>Buenos Aires · Remoto</span>
+      <span>diagonalstudios.co@gmail.com</span>
+      <span>Buenos Aires</span>
     </div>
   </div>
 </footer>
