@@ -1,33 +1,37 @@
 ---
-const testimonials = [
+const TESTIMONIALS = [
   {
-    quote: "Contrataron a Diagonal para implementar una plataforma de trading que mejorara el rendimiento y la escalabilidad de nuestro sistema actual. El equipo no solo cumplió con las expectativas, sino que superó cada hito del proyecto con una ejecución impecable.",
-    author: "Lucas Garay",
-    role: "CEO, Atlas·Pay",
+    quote: "Contratamos un equipo, no cinco proveedores. Diseño, desarrollo e infraestructura hablaban el mismo idioma desde el día uno.",
+    name: "Lucía Ferrer",
+    role: "COO, Atlas·Pay",
   },
   {
-    quote: "Diagonal transformó nuestra visión en un producto que superó nuestras expectativas. Su enfoque integral y atención al detalle marcaron la diferencia.",
-    author: "Sofía Martínez",
-    role: "CTO, Kuiper",
-  },
-  {
-    quote: "El equipo de Diagonal no solo desarrolló nuestro sistema, sino que nos asesoró en cada decisión técnica. Son un socio estratégico de verdad.",
-    author: "Martín López",
-    role: "Director de TI, Meridian",
+    quote: "Pasamos de una idea en una servilleta a un MVP en producción en ocho semanas. Sin intermediarios, sin teléfono descompuesto.",
+    name: "Martín Deza",
+    role: "Fundador, Kuiper",
   },
 ];
 ---
-<section class="py-32 border-t border-[#e6e6e6]">
-  <div class="max-w-[1400px] mx-auto px-10">
-    <div class="grid grid-cols-3 gap-8">
-      {testimonials.map((t) => (
-        <blockquote class="flex flex-col">
-          <p class="font-inter text-base text-[#333] leading-[28px] flex-1">
-            "{t.quote}"
+<section class="bg-paper py-24 md:py-32">
+  <div class="mx-auto max-w-[1400px] px-6 md:px-10">
+    <p class="reveal mb-14 font-mono text-xs uppercase tracking-[0.18em] text-g-500">— En sus palabras</p>
+    <div class="grid gap-px bg-g-200 md:grid-cols-2">
+      {TESTIMONIALS.map((t, i) => (
+        <blockquote
+          class="reveal relative bg-paper p-8 md:p-12"
+          style={`animation-delay: ${i * 0.12}s`}
+        >
+          <span class="font-display text-7xl font-black leading-none text-g-200 md:text-8xl" style="font-stretch: 75%">
+            &ldquo;
+          </span>
+          <p class="-mt-6 font-display text-2xl font-semibold leading-tight md:text-3xl" style="font-stretch: 85%">
+            {t.quote}
           </p>
-          <footer class="mt-8 pt-6 border-t border-[#e6e6e6]">
-            <p class="font-inter font-medium text-sm text-black">{t.author}</p>
-            <p class="font-inter text-sm text-[#666]">{t.role}</p>
+          <footer class="mt-8 flex items-center gap-4 border-t border-g-200 pt-5">
+            <span class="font-display text-lg font-extrabold uppercase" style="font-stretch: 75%">
+              {t.name}
+            </span>
+            <span class="font-mono text-xs uppercase tracking-[0.14em] text-g-500">{t.role}</span>
           </footer>
         </blockquote>
       ))}

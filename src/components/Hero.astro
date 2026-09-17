@@ -1,71 +1,64 @@
 ---
+import NodeNetwork from "./svg/NodeNetwork.astro";
 ---
-<section class="relative min-h-screen flex items-center justify-center px-10 overflow-hidden bg-black">
-  <div class="absolute inset-0" id="stars-container"></div>
-  <div class="relative z-10 max-w-[1400px] mx-auto w-full">
-    <div class="max-w-[900px]">
-      <p class="font-mono text-xs tracking-[2.16px] uppercase text-white/50 mb-6">— Diagonal Studios</p>
-      <h1 class="font-archivo font-black text-[80px] md:text-[120px] leading-[0.9] uppercase text-white tracking-tight">
-        De la idea<br />al lanzamiento
-      </h1>
-      <p class="font-archivo font-black text-[80px] md:text-[120px] leading-[0.9] uppercase text-white/30 tracking-tight mt-2">
-        —sin intermediarios.
-      </p>
+<section id="top" class="relative overflow-hidden bg-ink text-paper">
+  <NodeNetwork class="pointer-events-none absolute -right-24 top-1/2 h-[130%] w-[70%] -translate-y-1/2 opacity-40 md:opacity-60" />
+  <div
+    class="pointer-events-none absolute inset-0 opacity-[0.06]"
+    style="background-image: linear-gradient(to right, #fff 1px, transparent 1px), linear-gradient(to bottom, #fff 1px, transparent 1px); background-size: 80px 80px;"
+  />
+
+  <div class="relative mx-auto max-w-[1400px] px-6 pb-20 pt-36 md:px-10 md:pb-28 md:pt-44">
+    <div class="mb-10 flex items-center gap-4 font-mono text-xs uppercase tracking-[0.18em] text-paper/60">
+      <span>©2026</span>
+      <span class="h-px w-16 bg-paper/30" />
+      <span>Estudio integral de software</span>
     </div>
-    <div class="mt-16 flex items-center gap-8">
-      <a href="#contacto" class="inline-flex px-8 py-4 bg-white text-black font-mono text-xs tracking-[2.16px] uppercase hover:bg-white/90 transition-colors">
-        Empezá tu proyecto
-      </a>
-      <a href="#proyectos" class="inline-flex px-8 py-4 border border-white/30 text-white font-mono text-xs tracking-[2.16px] uppercase hover:border-white/60 transition-colors">
-        Ver trabajos
-      </a>
+
+    <h1 class="font-display font-black uppercase leading-[0.86] tracking-[-0.02em]" style="font-stretch: 75%">
+      <span class="block overflow-hidden">
+        <span class="reveal block text-[clamp(3rem,11vw,10.5rem)]">De la idea</span>
+      </span>
+      <span class="block overflow-hidden">
+        <span class="reveal block text-[clamp(3rem,11vw,10.5rem)]" style="animation-delay: 0.12s">
+          al lanzamiento
+        </span>
+      </span>
+      <span class="mt-2 block overflow-hidden">
+        <span
+          class="reveal block text-[clamp(2rem,7vw,6.5rem)] text-paper/45"
+          style="animation-delay: 0.24s"
+        >
+          — sin intermediarios.
+        </span>
+      </span>
+    </h1>
+
+    <div class="mt-12 grid gap-10 md:grid-cols-[1.1fr_1fr] md:items-end">
+      <p class="reveal max-w-xl text-lg leading-relaxed text-paper/70" style="animation-delay: 0.3s">
+        Diseño, desarrollo e implementación los hace <em class="not-italic text-paper">el mismo equipo</em>.
+        Llevamos tu producto de punta a punta, sin traspasos ni proveedores de por medio.
+      </p>
+
+      <div class="reveal flex flex-wrap items-center gap-4 md:justify-end" style="animation-delay: 0.36s">
+        <a
+          href="#contacto"
+          class="group inline-flex items-center gap-3 bg-paper px-7 py-4 font-mono text-sm uppercase tracking-[0.15em] text-ink transition-transform duration-300 hover:-translate-y-0.5"
+        >
+          Empecemos tu proyecto
+          <span class="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5">↗</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="mt-16 flex flex-wrap gap-x-8 gap-y-2 border-t border-paper/15 pt-6 font-mono text-xs uppercase tracking-[0.18em] text-paper/50">
+      <span>Diseño</span>
+      <span>/</span>
+      <span>Desarrollo</span>
+      <span>/</span>
+      <span>Implementación</span>
+      <span>/</span>
+      <span>Soporte</span>
     </div>
   </div>
-
-  <script>
-    const container = document.getElementById('stars-container');
-    if (container) {
-      for (let i = 0; i < 80; i++) {
-        const star = document.createElement('div');
-        star.className = 'absolute rounded-full bg-white';
-        const size = Math.random() * 2 + 1;
-        star.style.width = `${size}px`;
-        star.style.height = `${size}px`;
-        star.style.left = `${Math.random() * 100}%`;
-        star.style.top = `${Math.random() * 100}%`;
-        star.style.opacity = `${Math.random() * 0.5 + 0.1}`;
-        container.appendChild(star);
-      }
-
-      const lines = [
-        { x1: 15, y1: 20, x2: 25, y2: 35 },
-        { x1: 30, y1: 15, x2: 45, y2: 28 },
-        { x1: 50, y1: 10, x2: 60, y2: 25 },
-        { x1: 70, y1: 20, x2: 80, y2: 40 },
-        { x1: 20, y1: 60, x2: 35, y2: 75 },
-        { x1: 55, y1: 55, x2: 65, y2: 70 },
-        { x1: 75, y1: 50, x2: 85, y2: 65 },
-        { x1: 10, y1: 40, x2: 20, y2: 55 },
-        { x1: 40, y1: 35, x2: 55, y2: 50 },
-        { x1: 65, y1: 30, x2: 75, y2: 45 },
-      ];
-
-      const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-      svg.setAttribute('class', 'absolute inset-0 w-full h-full');
-      svg.setAttribute('style', 'opacity: 0.15');
-
-      lines.forEach(line => {
-        const l = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-        l.setAttribute('x1', `${line.x1}%`);
-        l.setAttribute('y1', `${line.y1}%`);
-        l.setAttribute('x2', `${line.x2}%`);
-        l.setAttribute('y2', `${line.y2}%`);
-        l.setAttribute('stroke', 'white');
-        l.setAttribute('stroke-width', '0.5');
-        svg.appendChild(l);
-      });
-
-      container.appendChild(svg);
-    }
-  </script>
 </section>

@@ -1,46 +1,43 @@
 ---
-const team = [
-  {
-    name: "Sol Ramirez",
-    role: "Design Lead",
-    image: "/team/sol.jpg",
-  },
-  {
-    name: "Iván Costa",
-    role: "Engineering",
-    image: "/team/ivan.jpg",
-  },
-  {
-    name: "Team HQ",
-    role: "Estudio completo",
-    image: "/team/hq.jpg",
-  },
-  {
-    name: "Nina Ortiz",
-    role: "Cloud DevOps",
-    image: "/team/nina.jpg",
-  },
+const TEAM = [
+  { name: "Sol Ramírez", role: "Design Lead", img: "https://images.unsplash.com/photo-1654780345432-79b8bf62def8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600" },
+  { name: "Iván Costa", role: "Engineering", img: "https://images.unsplash.com/photo-1652172100914-c5b691730756?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600" },
+  { name: "Team @ HQ", role: "Estudio completo", img: "https://images.unsplash.com/photo-1663438380019-b6997345e87e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600" },
+  { name: "Nina Ortiz", role: "Cloud / DevOps", img: "https://images.unsplash.com/photo-1553877522-43269d4ea984?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600" },
 ];
 ---
-<section id="equipo" class="py-32 border-t border-[#e6e6e6]">
-  <div class="max-w-[1400px] mx-auto px-10">
-    <div class="flex items-end justify-between">
-      <div>
-        <p class="font-mono text-xs tracking-[2.16px] uppercase text-[#666]">— Equipo</p>
-        <h2 class="font-archivo font-black text-[96px] leading-[96px] uppercase mt-4">El estudio<br />completo</h2>
-      </div>
+<section class="border-t border-g-200 bg-paper py-24 md:py-32">
+  <div class="mx-auto max-w-[1400px] px-6 md:px-10">
+    <div class="reveal mb-16 grid gap-6 md:grid-cols-[1fr_1fr] md:gap-16">
+      <h2 class="font-display text-4xl font-black uppercase leading-none md:text-6xl" style="font-stretch: 75%">
+        El estudio<br />completo
+      </h2>
+      <p class="self-end text-g-500">
+        Somos un grupo compacto de diseñadores e ingenieros que trabaja como una sola unidad. Sin capas de gestión entre tu idea y la gente que la construye — todos en la misma mesa, del primer boceto al deploy final.
+      </p>
     </div>
-    <div class="grid grid-cols-4 gap-4 mt-16">
-      {team.map((member) => (
-        <div class="group">
-          <div class="aspect-[4/5] bg-[#e6e6e6] overflow-hidden relative">
-            <div class="absolute inset-0 bg-gradient-to-br from-zinc-200 to-zinc-300 group-hover:scale-105 transition-transform duration-500"></div>
+
+    <div class="grid grid-cols-2 gap-px bg-g-200 md:grid-cols-4">
+      {TEAM.map((m, i) => (
+        <figure
+          class="reveal group bg-paper"
+          style={`animation-delay: ${i * 0.08}s`}
+        >
+          <div class="relative aspect-[3/4] overflow-hidden bg-g-200">
+            <img
+              src={m.img}
+              alt={`${m.name} — ${m.role} en Diagonal Studios`}
+              loading="lazy"
+              class="h-full w-full object-cover grayscale contrast-110 transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0"
+            />
           </div>
-          <div class="mt-4">
-            <p class="font-inter font-medium text-sm">{member.name}</p>
-            <p class="font-inter text-sm text-[#666]">{member.role}</p>
-          </div>
-        </div>
+          <figcaption class="flex items-baseline justify-between gap-2 p-4">
+            <span class="font-display text-base font-extrabold uppercase" style="font-stretch: 75%">
+              {m.name}
+            </span>
+            <span class="font-mono text-[10px] uppercase tracking-[0.14em] text-g-500">{m.role}</span>
+          </figcaption>
+        </figure>
       ))}
     </div>
   </div>

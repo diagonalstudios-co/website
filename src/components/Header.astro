@@ -1,21 +1,56 @@
 ---
+import LogoMark from "./svg/LogoMark.astro";
+
+const NAV = [
+  { label: "Home", href: "#top" },
+  { label: "Proceso", href: "#proceso" },
+  { label: "Casos de éxito", href: "#casos" },
+  { label: "Contacto", href: "#contacto" },
+];
 ---
-<header class="fixed top-0 left-0 right-0 z-50">
-  <nav class="max-w-[1400px] mx-auto px-10 py-6 flex items-center justify-between">
-    <a href="/" class="flex items-center gap-2">
-      <svg class="w-5 h-5" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M3 17L10 3L17 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      <span class="font-mono text-xs tracking-[2.16px] uppercase">Diagonal Studios</span>
+<header class="fixed inset-x-0 top-0 z-50 transition-colors duration-500 bg-ink/95 text-paper backdrop-blur" id="navbar">
+  <div class="mx-auto flex max-w-[1400px] items-center justify-between gap-6 px-6 py-4 md:px-10">
+    <a href="#top" class="group flex items-center gap-3">
+      <LogoMark class="h-7 w-7 transition-transform duration-500 group-hover:rotate-6" />
+      <span class="font-display text-lg font-extrabold tracking-tight" style="font-stretch: 75%">
+        DIAGONAL <span class="font-medium text-current/70">STUDIOS</span>
+      </span>
     </a>
-    <ul class="hidden md:flex items-center gap-8">
-      <li><a href="#proyectos" class="font-mono text-xs tracking-[2.16px] uppercase text-[#666] hover:text-black transition-colors">Proyectos</a></li>
-      <li><a href="#servicios" class="font-mono text-xs tracking-[2.16px] uppercase text-[#666] hover:text-black transition-colors">Servicios</a></li>
-      <li><a href="#equipo" class="font-mono text-xs tracking-[2.16px] uppercase text-[#666] hover:text-black transition-colors">Equipo</a></li>
-      <li><a href="#contacto" class="font-mono text-xs tracking-[2.16px] uppercase text-[#666] hover:text-black transition-colors">Contacto</a></li>
-    </ul>
-    <a href="#contacto" class="hidden md:inline-flex font-mono text-xs tracking-[2.16px] uppercase text-black hover:opacity-70 transition-opacity">
-      Hablemos →
+
+    <nav class="hidden items-center gap-8 md:flex">
+      {NAV.map((item) => (
+        <a
+          href={item.href}
+          class="font-mono text-xs uppercase tracking-[0.18em] opacity-70 transition-opacity hover:opacity-100"
+        >
+          {item.label}
+        </a>
+      ))}
+    </nav>
+
+    <a
+      href="#contacto"
+      class="group inline-flex items-center gap-2 border border-current px-4 py-2 font-mono text-xs uppercase tracking-[0.18em] transition-colors hover:bg-paper hover:text-ink"
+    >
+      Contacto
+      <span class="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5">↗</span>
     </a>
-  </nav>
+  </div>
 </header>
+
+<script>
+  const navbar = document.getElementById("navbar");
+  if (navbar) {
+    const onScroll = () => {
+      if (window.scrollY > 24) {
+        navbar.classList.add("bg-ink/95", "text-paper", "backdrop-blur");
+        navbar.classList.remove("bg-transparent");
+      } else {
+        navbar.classList.remove("bg-ink/95", "backdrop-blur");
+        navbar.classList.add("bg-transparent", "text-paper");
+      }
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+  }
+</script>

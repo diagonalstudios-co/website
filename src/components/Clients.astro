@@ -1,5 +1,5 @@
 ---
-const clients = [
+const CLIENTS = [
   "NÓRDICO",
   "Vértice",
   "Atlas·Pay",
@@ -11,37 +11,34 @@ const clients = [
   "Delta9",
   "Sena",
 ];
+const doubled = [...CLIENTS, ...CLIENTS];
 ---
-<section class="py-20 border-b border-[#e6e6e6]">
-  <div class="max-w-[1400px] mx-auto px-10">
-    <div class="flex items-end justify-between">
+<section class="border-b border-g-200 bg-paper py-20">
+  <div class="mx-auto max-w-[1400px] px-6 md:px-10">
+    <div class="reveal grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
       <div>
-        <p class="font-mono text-xs tracking-[2.16px] uppercase text-[#666]">— Confianza</p>
-        <h2 class="font-archivo font-extrabold text-[48px] leading-[48px] uppercase mt-4">
+        <p class="mb-4 font-mono text-xs uppercase tracking-[0.18em] text-g-500">— Confianza</p>
+        <h2 class="font-display text-3xl font-extrabold uppercase leading-none md:text-5xl" style="font-stretch: 75%">
           Marcas que confían<br />en nosotros
         </h2>
       </div>
-      <div class="flex items-baseline gap-4">
-        <span class="font-archivo font-black text-[72px] leading-[72px]">+30</span>
-        <span class="font-inter text-sm text-[#666]">marcas y contando</span>
-      </div>
-    </div>
-  </div>
-  <div class="mt-14 border-y border-[#e6e6e6] py-6 overflow-hidden">
-    <div class="flex gap-16 animate-marquee whitespace-nowrap">
-      {[...clients, ...clients].map((client) => (
-        <span class="font-archivo font-bold text-[30px] tracking-[-0.75px] uppercase text-[#ccc]">{client}</span>
-      ))}
+      <p class="font-display text-5xl font-black leading-none md:text-7xl" style="font-stretch: 75%">
+        +30
+        <span class="ml-3 align-middle font-body text-sm font-medium text-g-500">marcas y contando</span>
+      </p>
     </div>
   </div>
 
-  <style>
-    @keyframes marquee {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-    .animate-marquee {
-      animation: marquee 30s linear infinite;
-    }
-  </style>
+  <div class="marquee relative mt-14 overflow-hidden border-y border-g-200 py-6">
+    <div class="marquee-track flex w-max items-center gap-16 px-8">
+      {doubled.map((name, i) => (
+        <span
+          class="font-display text-2xl font-bold uppercase tracking-tight text-g-300 transition-colors duration-300 hover:text-ink md:text-3xl"
+          style="font-stretch: 75%"
+        >
+          {name}
+        </span>
+      ))}
+    </div>
+  </div>
 </section>
