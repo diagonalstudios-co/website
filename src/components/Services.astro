@@ -13,11 +13,11 @@ const SERVICES = [
     <div class="mb-16 grid gap-10 md:grid-cols-[1fr_1fr]">
       <div class="reveal">
         <p class="mb-4 font-mono text-xs uppercase tracking-[0.18em] text-paper/50">— Servicios</p>
-        <h2 class="font-display text-4xl font-black uppercase leading-none md:text-6xl" style="font-stretch: 75%">
+        <h2 class="font-display text-3xl font-black uppercase leading-none md:text-4xl lg:text-6xl" style="font-stretch: 75%">
           Un equipo,<br />todo el ciclo
         </h2>
       </div>
-      <p class="reveal self-end text-lg leading-relaxed text-paper/60" style="animation-delay: 0.1s">
+      <p class="reveal self-end text-base leading-relaxed text-paper/60 md:text-lg" style="animation-delay: 0.1s">
         No derivamos, no subcontratamos. Cada capa del producto — de la investigación a la infraestructura — vive dentro del mismo estudio.
       </p>
     </div>
@@ -25,12 +25,12 @@ const SERVICES = [
     <div class="border-t border-paper/15">
       {SERVICES.map((s, i) => (
         <div
-          class="reveal group grid grid-cols-[auto_1fr_auto] items-center gap-6 border-b border-paper/15 py-6 transition-colors duration-300 hover:bg-paper hover:text-ink md:py-8"
+          class="reveal group grid grid-cols-[auto_1fr_auto] items-center gap-4 border-b border-paper/15 py-5 transition-colors duration-300 hover:bg-paper hover:text-ink md:gap-6 md:py-8"
           style={`animation-delay: ${i * 0.06}s`}
         >
           <span class="font-mono text-xs tracking-[0.18em] opacity-50">{`{0${i + 1}}`}</span>
           <h3
-            class="font-display text-3xl font-extrabold uppercase leading-none transition-transform duration-300 group-hover:translate-x-2 md:text-5xl"
+            class="font-display text-2xl font-extrabold uppercase leading-none transition-transform duration-300 group-hover:translate-x-2 md:text-3xl lg:text-5xl"
             style="font-stretch: 75%"
           >
             {s.name}

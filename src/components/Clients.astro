@@ -13,16 +13,16 @@ const CLIENTS = [
 ];
 const doubled = [...CLIENTS, ...CLIENTS];
 ---
-<section class="border-b border-g-200 bg-paper py-20">
+<section class="border-b border-g-200 bg-paper py-16 md:py-20">
   <div class="mx-auto max-w-[1400px] px-6 md:px-10">
     <div class="reveal grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
       <div>
         <p class="mb-4 font-mono text-xs uppercase tracking-[0.18em] text-g-500">— Confianza</p>
-        <h2 class="font-display text-3xl font-extrabold uppercase leading-none md:text-5xl" style="font-stretch: 75%">
+        <h2 class="font-display text-3xl font-extrabold uppercase leading-none md:text-4xl lg:text-5xl" style="font-stretch: 75%">
           Marcas que confían<br />en nosotros
         </h2>
       </div>
-      <p class="font-display text-5xl font-black leading-none md:text-7xl" style="font-stretch: 75%">
+      <p class="font-display text-4xl font-black leading-none md:text-5xl lg:text-7xl" style="font-stretch: 75%">
         +30
         <span class="ml-3 align-middle font-body text-sm font-medium text-g-500">marcas y contando</span>
       </p>
@@ -30,10 +30,10 @@ const doubled = [...CLIENTS, ...CLIENTS];
   </div>
 
   <div class="marquee relative mt-14 overflow-hidden border-y border-g-200 py-6">
-    <div class="marquee-track flex w-max items-center gap-16 px-8">
+    <div class="marquee-track flex w-max items-center gap-12 px-8 md:gap-16">
       {doubled.map((name, i) => (
         <span
-          class="font-display text-2xl font-bold uppercase tracking-tight text-g-300 transition-colors duration-300 hover:text-ink md:text-3xl"
+          class="font-display text-xl font-bold uppercase tracking-tight text-g-300 transition-colors duration-300 hover:text-ink md:text-2xl lg:text-3xl"
           style="font-stretch: 75%"
         >
           {name}

@@ -28,7 +28,7 @@ const CASES = [
     <div class="reveal mb-16 flex flex-wrap items-end justify-between gap-6">
       <div>
         <p class="mb-4 font-mono text-xs uppercase tracking-[0.18em] text-g-500">— Resultados</p>
-        <h2 class="font-display text-5xl font-black uppercase leading-none md:text-8xl" style="font-stretch: 75%">
+        <h2 class="font-display text-4xl font-black uppercase leading-none md:text-6xl lg:text-8xl" style="font-stretch: 75%">
           Casos de éxito
         </h2>
       </div>
@@ -38,7 +38,7 @@ const CASES = [
       </a>
     </div>
 
-    <div class="grid gap-px bg-g-200 md:grid-cols-3">
+    <div class="grid gap-px bg-g-200 md:grid-cols-2 lg:grid-cols-3">
       {CASES.map((c, i) => (
         <article
           class="reveal group flex flex-col bg-paper p-6 transition-colors duration-300 hover:bg-g-100"
@@ -57,12 +57,12 @@ const CASES = [
           </div>
 
           <p class="font-mono text-xs uppercase tracking-[0.18em] text-g-500">{c.kind}</p>
-          <h3 class="mt-1 font-display text-2xl font-extrabold uppercase" style="font-stretch: 75%">
+          <h3 class="mt-1 font-display text-xl font-extrabold uppercase md:text-2xl" style="font-stretch: 75%">
             {c.client}
           </h3>
 
           <div class="mt-6 border-t border-g-200 pt-5">
-            <p class="font-display text-5xl font-black leading-none" style="font-stretch: 75%">
+            <p class="font-display text-4xl font-black leading-none md:text-5xl" style="font-stretch: 75%">
               {c.metric}
             </p>
             <p class="mt-2 text-sm text-g-500">{c.metricLabel}</p>

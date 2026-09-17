@@ -9,7 +9,7 @@ const TEAM = [
 <section class="border-t border-g-200 bg-paper py-24 md:py-32">
   <div class="mx-auto max-w-[1400px] px-6 md:px-10">
     <div class="reveal mb-16 grid gap-6 md:grid-cols-[1fr_1fr] md:gap-16">
-      <h2 class="font-display text-4xl font-black uppercase leading-none md:text-6xl" style="font-stretch: 75%">
+      <h2 class="font-display text-3xl font-black uppercase leading-none md:text-4xl lg:text-6xl" style="font-stretch: 75%">
         El estudio<br />completo
       </h2>
       <p class="self-end text-g-500">
@@ -17,7 +17,7 @@ const TEAM = [
       </p>
     </div>
 
-    <div class="grid grid-cols-2 gap-px bg-g-200 md:grid-cols-4">
+    <div class="grid grid-cols-2 gap-px bg-g-200 md:grid-cols-2 lg:grid-cols-4">
       {TEAM.map((m, i) => (
         <figure
           class="reveal group bg-paper"
@@ -32,7 +32,7 @@ const TEAM = [
             />
           </div>
           <figcaption class="flex items-baseline justify-between gap-2 p-4">
-            <span class="font-display text-base font-extrabold uppercase" style="font-stretch: 75%">
+            <span class="font-display text-sm font-extrabold uppercase md:text-base" style="font-stretch: 75%">
               {m.name}
             </span>
             <span class="font-mono text-[10px] uppercase tracking-[0.14em] text-g-500">{m.role}</span>
