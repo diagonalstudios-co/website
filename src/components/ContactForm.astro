@@ -19,12 +19,13 @@ import NodeNetwork from "./svg/NodeNetwork.astro";
         </div>
       </div>
 
-      <form class="reveal flex flex-col gap-8" style="animation-delay: 0.12s">
+      <form id="contact-form" class="reveal flex flex-col gap-8" style="animation-delay: 0.12s">
         <label class="group block">
           <span class="font-mono text-xs uppercase tracking-[0.18em] text-paper/50">Nombre</span>
           <input
             required
             type="text"
+            name="name"
             placeholder="Cómo te llamás"
             class="mt-3 w-full border-b border-paper/25 bg-transparent pb-3 text-base text-paper placeholder:text-paper/30 outline-none transition-colors focus:border-paper md:text-lg"
           />
@@ -34,6 +35,7 @@ import NodeNetwork from "./svg/NodeNetwork.astro";
           <input
             required
             type="email"
+            name="email"
             placeholder="tu@empresa.com"
             class="mt-3 w-full border-b border-paper/25 bg-transparent pb-3 text-base text-paper placeholder:text-paper/30 outline-none transition-colors focus:border-paper md:text-lg"
           />
@@ -43,6 +45,7 @@ import NodeNetwork from "./svg/NodeNetwork.astro";
           <textarea
             required
             rows="3"
+            name="message"
             placeholder="Contanos sobre tu producto"
             class="mt-3 w-full resize-none border-b border-paper/25 bg-transparent pb-3 text-base text-paper placeholder:text-paper/30 outline-none transition-colors focus:border-paper md:text-lg"
           ></textarea>
@@ -50,12 +53,65 @@ import NodeNetwork from "./svg/NodeNetwork.astro";
 
         <button
           type="submit"
-          class="group inline-flex items-center justify-center gap-3 bg-paper px-7 py-4 font-mono text-sm uppercase tracking-[0.15em] text-ink transition-transform duration-300 hover:-translate-y-0.5 cursor-pointer"
+          id="submit-btn"
+          class="group inline-flex items-center justify-center gap-3 bg-paper px-7 py-4 font-mono text-sm uppercase tracking-[0.15em] text-ink transition-transform duration-300 hover:-translate-y-0.5 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
         >
-          Enviar mensaje
-          <span class="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5">↗</span>
+          <span id="btn-text">Enviar mensaje</span>
+          <span id="btn-arrow" class="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5">↗</span>
         </button>
+        <p id="form-message" class="font-mono text-sm uppercase tracking-[0.14em] hidden"></p>
       </form>
     </div>
   </div>
 </section>
+
+<script>
+  const form = document.getElementById("contact-form") as HTMLFormElement;
+  const btn = document.getElementById("submit-btn") as HTMLButtonElement;
+  const btnText = document.getElementById("btn-text")!;
+  const btnArrow = document.getElementById("btn-arrow")!;
+  const formMessage = document.getElementById("form-message")!;
+
+  form?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+    const name = formData.get("name") as string;
+    const email = formData.get("email") as string;
+    const message = formData.get("message") as string;
+
+    btn.disabled = true;
+    btnText.textContent = "Enviando...";
+    btnArrow.classList.add("hidden");
+    formMessage.classList.add("hidden");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, message }),
+      });
+
+      const data = await res.json();
+
+      if (res.ok && data.success) {
+        formMessage.textContent = "Mensaje enviado — te escribimos pronto";
+        formMessage.classList.remove("hidden", "text-red-400");
+        formMessage.classList.add("text-emerald-400");
+        form.reset();
+      } else {
+        formMessage.textContent = data.error || "Error al enviar el mensaje";
+        formMessage.classList.remove("hidden", "text-emerald-400");
+        formMessage.classList.add("text-red-400");
+      }
+    } catch {
+      formMessage.textContent = "Error de conexión — intentá de nuevo";
+      formMessage.classList.remove("hidden", "text-emerald-400");
+      formMessage.classList.add("text-red-400");
+    } finally {
+      btn.disabled = false;
+      btnText.textContent = "Enviar mensaje";
+      btnArrow.classList.remove("hidden");
+    }
+  });
+</script>
