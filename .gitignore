@@ -14,3 +14,18 @@ node_modules/
 # os
 .DS_Store
 Thumbs.db
+
+# editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# logs
+*.log
+npm-debug.log*
+
+# misc
+.cache/
+*.tsbuildinfo
