@@ -1,0 +1,243 @@
+---
+import "@styles/global.css";
+import LogoMark from "@components/svg/LogoMark.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  img: string;
+  client: string;
+  kind: string;
+  metric: string;
+  metricLabel: string;
+  quote: string;
+  quoteAuthor: string;
+  quoteRole: string;
+}
+
+const { title, description, img, client, kind, metric, metricLabel, quote, quoteAuthor, quoteRole } = Astro.props;
+
+const metricMatch = metric.match(/^([^0-9]*)([0-9]+\.?[0-9]*)(.*)$/);
+const metricPrefix = metricMatch?.[1] ?? "";
+const metricTarget = metricMatch?.[2] ?? "0";
+const metricSuffix = metricMatch?.[3] ?? "";
+const metricDecimals = metricTarget.includes(".") ? metricTarget.split(".")[1].length : 0;
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title} — Diagonal Studios</title>
+  </head>
+  <body class="bg-paper text-ink font-body antialiased">
+
+    <header class="fixed inset-x-0 top-0 z-50 bg-ink/95 text-paper backdrop-blur">
+      <div class="mx-auto flex max-w-[1400px] items-center justify-between gap-6 px-6 py-4 md:px-10">
+        <a href="/#top" class="group flex items-center gap-3">
+          <svg width="100" height="107" viewBox="0 0 100 107" fill="none" class="h-7 w-auto transition-transform duration-500 group-hover:rotate-6" aria-hidden="true">
+            <path d="M0 5.95529V91.8677L49.4152 40.8084H33.7232V28.4097H71.6374V66.6797H58.7719V50.5712L3.60624 107H50.5848C89.5712 103.017 99.7726 70.1293 100 54.1834C99.7661 14.4294 68.1287 1.49696 52.3392 0H5.16569C1.03314 0.859124 0 4.32816 0 5.95529Z" fill="white"/>
+          </svg>
+          <span class="font-display text-lg font-extrabold tracking-tight" style="font-stretch: 75%">
+            DIAGONAL <span class="font-medium text-current/70">STUDIOS</span>
+          </span>
+        </a>
+
+        <nav class="hidden items-center gap-8 md:flex">
+          <a href="/#top" class="font-mono text-xs uppercase tracking-[0.18em] opacity-70 transition-opacity hover:opacity-100">Home</a>
+          <a href="/#proceso" class="font-mono text-xs uppercase tracking-[0.18em] opacity-70 transition-opacity hover:opacity-100">Proceso</a>
+          <a href="/#casos" class="font-mono text-xs uppercase tracking-[0.18em] opacity-100">Casos de éxito</a>
+          <a href="/#contacto" class="font-mono text-xs uppercase tracking-[0.18em] opacity-70 transition-opacity hover:opacity-100">Contacto</a>
+        </nav>
+
+        <a
+          href="/#contacto"
+          class="group inline-flex items-center gap-2 border border-current px-4 py-2 font-mono text-xs uppercase tracking-[0.18em] transition-colors hover:bg-paper hover:text-ink"
+        >
+          Contacto
+          <span class="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5">↗</span>
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section class="relative pt-24 pb-16 md:pt-32 md:pb-24">
+        <div class="mx-auto max-w-[1400px] px-6 md:px-10">
+          <a href="/#casos" class="reveal mb-8 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.18em] text-g-500 transition-colors hover:text-ink">
+            <span class="transition-transform hover:-translate-x-1">←</span>
+            Volver a casos
+          </a>
+
+          <div class="reveal grid gap-10 md:grid-cols-2 md:items-center">
+            <div>
+              <p class="mb-4 font-mono text-xs uppercase tracking-[0.18em] text-g-500">— {kind}</p>
+              <h1 class="font-display text-5xl font-black uppercase leading-[0.9] md:text-7xl lg:text-8xl" style="font-stretch: 75%">
+                {client}
+              </h1>
+              <p class="mt-6 max-w-lg text-lg leading-relaxed text-g-600">
+                {description}
+              </p>
+
+              <div class="mt-10 border-t border-g-200 pt-8">
+                <p
+                  class="counter-value font-display text-6xl font-black leading-none md:text-7xl"
+                  style="font-stretch: 75%"
+                  data-prefix={metricPrefix}
+                  data-target={metricTarget}
+                  data-suffix={metricSuffix}
+                  data-decimals={metricDecimals}
+                >
+                  {metric}
+                </p>
+                <p class="mt-2 text-sm text-g-500">{metricLabel}</p>
+              </div>
+            </div>
+
+            <div class="relative aspect-[4/3] overflow-hidden bg-g-200">
+              <img
+                src={img}
+                alt={`Mockup del proyecto de ${client}`}
+                class="h-full w-full object-cover grayscale contrast-125"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Content -->
+      <section class="border-t border-g-200 py-16 md:py-24">
+        <div class="mx-auto max-w-[900px] px-6 md:px-10">
+          <article class="prose">
+            <slot />
+          </article>
+        </div>
+      </section>
+
+      <!-- Quote -->
+      <section class="border-t border-g-200 bg-g-100 py-16 md:py-24">
+        <div class="mx-auto max-w-[900px] px-6 md:px-10">
+          <div class="reveal">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" class="mb-6 opacity-20" aria-hidden="true">
+              <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z" fill="currentColor"/>
+            </svg>
+            <blockquote class="font-display text-2xl font-medium leading-snug text-ink md:text-3xl" style="font-stretch: 75%">
+              {quote}
+            </blockquote>
+            <div class="mt-8 flex items-center gap-4">
+              <div class="h-px w-12 bg-g-300"></div>
+              <div>
+                <p class="font-mono text-sm font-medium tracking-wide">{quoteAuthor}</p>
+                <p class="font-mono text-xs text-g-500">{quoteRole}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="border-t border-g-200 bg-ink py-20 text-paper md:py-28">
+        <div class="mx-auto max-w-[900px] px-6 text-center md:px-10">
+          <p class="mb-4 font-mono text-xs uppercase tracking-[0.18em] text-g-400">— ¿Tenés un proyecto en mente?</p>
+          <h2 class="font-display text-4xl font-black uppercase leading-none md:text-6xl" style="font-stretch: 75%">
+            Hablemos
+          </h2>
+          <p class="mx-auto mt-6 max-w-lg text-g-400">
+            Cuéntanos tu idea y te ayudamos a convertirla en un producto real. Sin compromisos, solo una conversación.
+          </p>
+          <a
+            href="/#contacto"
+            class="group mt-10 inline-flex items-center gap-2 border border-current px-6 py-3 font-mono text-xs uppercase tracking-[0.18em] transition-colors hover:bg-paper hover:text-ink"
+          >
+            Contactanos
+            <span class="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5">↗</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-g-200 bg-paper py-10">
+      <div class="mx-auto flex max-w-[1400px] flex-wrap items-center justify-between gap-6 px-6 md:px-10">
+        <div class="flex items-center gap-3">
+          <svg width="100" height="107" viewBox="0 0 100 107" fill="none" class="h-5 w-auto opacity-40" aria-hidden="true">
+            <path d="M0 5.95529V91.8677L49.4152 40.8084H33.7232V28.4097H71.6374V66.6797H58.7719V50.5712L3.60624 107H50.5848C89.5712 103.017 99.7726 70.1293 100 54.1834C99.7661 14.4294 68.1287 1.49696 52.3392 0H5.16569C1.03314 0.859124 0 4.32816 0 5.95529Z" fill="currentColor"/>
+          </svg>
+          <span class="font-mono text-xs text-g-400">&copy; {new Date().getFullYear()} Diagonal Studios</span>
+        </div>
+        <a href="/#top" class="font-mono text-xs uppercase tracking-[0.18em] text-g-400 transition-colors hover:text-ink">
+          Volver arriba ↑
+        </a>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const els = Array.from(document.querySelectorAll<HTMLElement>(".reveal"));
+        if (!("IntersectionObserver" in window) || els.length === 0) {
+          els.forEach((el) => el.classList.add("is-in"));
+          return;
+        }
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-in");
+                io.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+        );
+        els.forEach((el) => io.observe(el));
+
+        // Counter animation
+        const counters = Array.from(document.querySelectorAll<HTMLElement>(".counter-value"));
+        if (counters.length === 0) return;
+
+        const easeOutQuart = (t: number) => 1 - Math.pow(1 - t, 4);
+
+        const animateCounter = (el: HTMLElement) => {
+          const prefix = el.dataset.prefix ?? "";
+          const target = parseFloat(el.dataset.target ?? "0");
+          const suffix = el.dataset.suffix ?? "";
+          const decimals = parseInt(el.dataset.decimals ?? "0");
+          const duration = 2000;
+          const start = performance.now();
+
+          el.style.opacity = "0";
+
+          const step = (now: number) => {
+            const elapsed = now - start;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = easeOutQuart(progress);
+            const current = eased * target;
+            el.textContent = prefix + current.toFixed(decimals) + suffix;
+            if (progress < 1) {
+              requestAnimationFrame(step);
+            } else {
+              el.style.opacity = "1";
+            }
+          };
+
+          el.style.opacity = "1";
+          requestAnimationFrame(step);
+        };
+
+        const counterIO = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                animateCounter(entry.target as HTMLElement);
+                counterIO.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.3 }
+        );
+        counters.forEach((el) => counterIO.observe(el));
+      });
+    </script>
+  </body>
+</html>
