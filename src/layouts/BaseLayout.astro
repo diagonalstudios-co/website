@@ -15,10 +15,30 @@ const { title, description = "Diagonal Studios — Estudio de desarrollo de soft
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <title>{title}</title>
   </head>
-  <body class="bg-white text-black antialiased">
+  <body class="bg-paper text-ink font-body antialiased">
     <slot />
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const els = Array.from(document.querySelectorAll<HTMLElement>(".reveal"));
+        if (!("IntersectionObserver" in window) || els.length === 0) {
+          els.forEach((el) => el.classList.add("is-in"));
+          return;
+        }
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-in");
+                io.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+        );
+        els.forEach((el) => io.observe(el));
+      });
+    </script>
   </body>
 </html>
