@@ -1,0 +1,44 @@
+---
+const PILLARS = [
+  {
+    title: "Misión",
+    text: "Convertir ideas en productos digitales que generen impacto real. Un solo equipo de diseño y desarrollo, sin traspasos.",
+  },
+  {
+    title: "Visión",
+    text: "Que cada negocio tenga acceso a tecnología de clase mundial, sin las complejidades de construir un equipo técnico desde cero.",
+  },
+  {
+    title: "Valores",
+    text: "Simplicidad, transparencia, compromiso con resultados y mejora continua.",
+  },
+];
+---
+<section class="border-t border-g-200 bg-paper py-24 md:py-32">
+  <div class="mx-auto max-w-[1400px] px-6 md:px-10">
+    <div class="reveal mb-16 grid gap-6 md:grid-cols-[auto_1fr] md:items-end md:gap-16">
+      <h2 class="font-display text-5xl font-black uppercase leading-[0.85] lg:text-7xl" style="font-stretch: 75%">
+        Sobre<br />nosotros
+      </h2>
+      <p class="max-w-md text-g-500 md:pb-3">
+        Somos un estudio integral de software. Diseñamos, construimos y mantenemos productos digitales con un equipo compacto que trabaja como una sola unidad.
+      </p>
+    </div>
+
+    <div class="grid gap-10 md:grid-cols-3 md:gap-6">
+      {PILLARS.map((p, i) => (
+        <div
+          class="reveal border-t border-g-300 pt-8"
+          style={`animation-delay: ${i * 0.1}s`}
+        >
+          <h3 class="font-display text-xl font-extrabold uppercase md:text-2xl" style="font-stretch: 75%">
+            {p.title}
+          </h3>
+          <p class="mt-4 max-w-sm text-sm leading-relaxed text-g-500">
+            {p.text}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
