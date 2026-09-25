@@ -80,6 +80,11 @@ body {
 .reveal.is-in {
   animation: reveal-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
+/* Hero entrance without JS: starts at first paint so the LCP text is not
+   gated behind DOMContentLoaded + IntersectionObserver. */
+.hero-rise {
+  animation: reveal-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
 
 @keyframes marquee {
   from {
@@ -143,6 +148,7 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   .reveal,
+  .hero-rise,
   .marquee-track,
   .dash-flow,
   .node-pulse,

@@ -16,6 +16,11 @@ try {
 // https://astro.build/config
 export default defineConfig({
   site: "https://diagonalstudios.com.ar",
+  // Inline the page CSS: removes the render-blocking /_astro/*.css request
+  // (measured ~400ms on mobile Lighthouse) at the cost of no CSS cache reuse.
+  build: {
+    inlineStylesheets: "always",
+  },
   // imageCDN: false keeps Astro's build-time sharp pipeline (images are
   // already optimized webp; no dependency on Netlify Image CDN).
   adapter: netlify({
