@@ -29,3 +29,6 @@ npm-debug.log*
 # misc
 .cache/
 *.tsbuildinfo
+
+.agents
+skills-lock.json
