@@ -13,10 +13,17 @@ export async function getStaticPaths() {
 const { caseEntry } = Astro.props;
 const { Content } = await render(caseEntry);
 const { client, kind, metric, metricLabel, description, quote, quoteAuthor, quoteRole } = caseEntry.data;
+
+const seoTitles: Record<string, string> = {
+  elix: "ELIX — Caso de éxito: catálogo digital | Diagonal Studios",
+  antifuga: "Antifuga — Caso de éxito: SaaS de gestión | Diagonal Studios",
+};
+const slug = caseEntry.id.replace(/\.md$/, "");
+const seoTitle = seoTitles[slug] ?? `${client} — Caso de éxito | Diagonal Studios`;
 ---
 
 <CaseLayout
-  title={`${client}`}
+  title={seoTitle}
   description={description}
   client={client}
   kind={kind}

@@ -1,0 +1,26 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Página no encontrada — Diagonal Studios"
+  description="La página que buscás no existe. Volvé al inicio de Diagonal Studios para conocer nuestros servicios de desarrollo de software."
+  noindex
+>
+  <main class="flex min-h-screen flex-col items-center justify-center bg-paper px-6 text-center">
+    <p class="mb-6 font-mono text-xs uppercase tracking-[0.18em] text-g-500">— Error 404</p>
+    <h1 class="font-display text-6xl font-black uppercase leading-none md:text-8xl" style="font-stretch: 75%">
+      404
+    </h1>
+    <p class="mt-6 max-w-md text-g-600">
+      La página que buscás no existe o fue movida.
+    </p>
+    <a
+      href="/"
+      class="group mt-10 inline-flex items-center gap-2 border border-current px-6 py-3 font-mono text-xs uppercase tracking-[0.18em] transition-colors hover:bg-ink hover:text-paper"
+    >
+      Volver al inicio
+      <span class="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5">↗</span>
+    </a>
+  </main>
+</BaseLayout>

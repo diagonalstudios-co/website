@@ -1,10 +1,11 @@
 ---
+import { Image } from "astro:assets";
 import elixLogo from "./images/ELIX Logo.png";
 import antifugaLogo from "./images/Antifuga Logo.png";
 
 const CLIENTS = [
-  { src: elixLogo.src, alt: "Logo de Elix" },
-  { src: antifugaLogo.src, alt: "Logo de Antifuga" },
+  { src: elixLogo, alt: "Logo de ELIX" },
+  { src: antifugaLogo, alt: "Logo de Antifuga" },
 ];
 ---
 <section class="border-b border-g-200 bg-paper py-16 md:py-20">
@@ -35,10 +36,12 @@ const CLIENTS = [
   <div class="marquee relative mt-14 overflow-hidden border-y border-g-200 py-6">
     <div class="flex items-center justify-center gap-12 px-8 md:gap-16">
       {CLIENTS.map((logo) => (
-        <img
+        <Image
           src={logo.src}
           alt={logo.alt}
-          class="max-h-11 max-w-40 opacity-50 md:max-h-14 md:max-w-48"
+          format="webp"
+          loading="lazy"
+          class="h-auto max-h-11 max-w-40 opacity-50 md:max-h-14 md:max-w-48"
         />
       ))}
     </div>

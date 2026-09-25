@@ -7,7 +7,6 @@ const cases = defineCollection({
     kind: z.string(),
     metric: z.string(),
     metricLabel: z.string(),
-    img: z.string(),
     description: z.string(),
     quote: z.string(),
     quoteAuthor: z.string(),

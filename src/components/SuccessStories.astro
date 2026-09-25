@@ -1,48 +1,44 @@
 ---
+import { Image } from "astro:assets";
 import elixImg from "./images/Elix.png";
 import antifugaImg from "./images/Antifuga.png";
 
 const CASES = [
   {
     slug: "elix",
-    client: "Elix Fragancias",
-    kind: "E-commerce",
+    client: "ELIX",
+    kind: "Web · Catálogo digital",
     metric: "+40%",
     metricTarget: "40",
     metricPrefix: "+",
     metricSuffix: "%",
     metricDecimals: "0",
-    metricLabel: "de consultas recibidas",
-    img: elixImg.src,
+    metricLabel: "consultas recibidas",
+    img: elixImg,
+    alt: "Mockup del catálogo digital de ELIX en laptop y celular",
   },
   {
     slug: "antifuga",
     client: "Antifuga",
-    kind: "SaaS · Plataforma B2B",
+    kind: "SaaS · Plataforma de gestión financiera",
     metric: "8 semanas",
     metricTarget: "8",
     metricPrefix: "",
     metricSuffix: " semanas",
     metricDecimals: "0",
-    metricLabel: "de idea a MVP en producción",
-    img: antifugaImg.src,
+    metricLabel: "de la idea a un SaaS funcional",
+    img: antifugaImg,
+    alt: "Dashboard de Antifuga mostrado en una tablet",
   },
-  
 ];
 ---
 <section id="casos" class="border-t border-g-200 bg-paper py-24 md:py-32">
   <div class="mx-auto max-w-[1400px] px-6 md:px-10">
-    <div class="reveal mb-16 flex flex-wrap items-end justify-between gap-6">
-      <div>
-        <p class="mb-4 font-mono text-xs uppercase tracking-[0.18em] text-g-500">— Resultados</p>
-        <h2 class="font-display text-4xl font-black uppercase leading-none md:text-6xl lg:text-8xl" style="font-stretch: 75%">
-          Casos de éxito
-        </h2>
-      </div>
-      <a href="#casos" class="group font-mono text-xs uppercase tracking-[0.18em]">
-        Ver todos los casos
-        <span class="ml-2 inline-block transition-transform group-hover:translate-x-1">→</span>
-      </a>
+    <div class="reveal mb-16">
+      <p class="mb-4 font-mono text-xs uppercase tracking-[0.18em] text-g-500">— Resultados</p>
+      <h2 class="font-display text-4xl font-black uppercase leading-none md:text-6xl lg:text-8xl" style="font-stretch: 75%">
+        Casos de éxito
+      </h2>
     </div>
 
     <div class="grid gap-px bg-g-200 md:grid-cols-2 lg:grid-cols-3">
@@ -52,9 +48,10 @@ const CASES = [
           style={`animation-delay: ${i * 0.1}s`}
         >
           <div class="relative mb-6 aspect-[4/3] overflow-hidden bg-paper">
-            <img
+            <Image
               src={c.img}
-              alt={`Logo de ${c.client}`}
+              alt={c.alt}
+              format="webp"
               loading="lazy"
               class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
             />

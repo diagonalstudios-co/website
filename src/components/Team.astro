@@ -1,10 +1,11 @@
 ---
+import { Image } from "astro:assets";
 import ramiroImg from "./images/Ramiro Gil.jpeg";
 import francoImg from "./images/Franco Arce.jpeg";
 
 const TEAM = [
-  { name: "Ramiro Gil", role: "Product Engineer", img: ramiroImg.src },
-  { name: "Franco Arce", role: "Product Engineer", img: francoImg.src },
+  { name: "Ramiro Gil", role: "Product Engineer", img: ramiroImg },
+  { name: "Franco Arce", role: "Product Engineer", img: francoImg },
 ];
 ---
 <section class="border-t border-g-200 bg-paper py-24 md:py-32">
@@ -25,9 +26,10 @@ const TEAM = [
           style={`animation-delay: ${i * 0.08}s`}
         >
           <div class="relative aspect-[3/4] overflow-hidden bg-g-200">
-            <img
+            <Image
               src={m.img}
               alt={`${m.name} — ${m.role} en Diagonal Studios`}
+              format="webp"
               loading="lazy"
               class="h-full w-full object-cover grayscale contrast-110 transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0"
             />

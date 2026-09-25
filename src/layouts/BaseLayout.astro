@@ -4,9 +4,39 @@ import "@styles/global.css";
 interface Props {
   title: string;
   description?: string;
+  jsonLd?: Record<string, unknown>[];
+  noindex?: boolean;
 }
 
-const { title, description = "Diagonal Studios — Estudio de desarrollo de software" } = Astro.props;
+const {
+  title,
+  description = "Diagonal Studios — Diseñamos y desarrollamos software a medida: apps web, productos SaaS y sistemas a medida en Buenos Aires, Argentina.",
+  jsonLd = [],
+  noindex = false,
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const ogImage = new URL("/og.png", Astro.site).href;
+
+const siteLd: Record<string, unknown>[] = [
+  {
+    "@type": "Organization",
+    name: "Diagonal Studios",
+    url: new URL("/", Astro.site).href,
+    email: "diagonalstudios.co@gmail.com",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Buenos Aires",
+      addressCountry: "AR",
+    },
+  },
+  {
+    "@type": "WebSite",
+    name: "Diagonal Studios",
+    url: new URL("/", Astro.site).href,
+    inLanguage: "es-AR",
+  },
+];
 ---
 <!doctype html>
 <html lang="es">
@@ -14,8 +44,46 @@ const { title, description = "Diagonal Studios — Estudio de desarrollo de soft
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    {noindex ? (
+      <meta name="robots" content="noindex, follow" />
+    ) : (
+      <link rel="canonical" href={canonical} />
+    )}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Diagonal Studios" />
+    <meta property="og:locale" content="es_AR" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Diagonal Studios" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    />
+
+    <script type="application/ld+json" set:html={JSON.stringify({ "@context": "https://schema.org", "@graph": [...siteLd, ...jsonLd] })} />
+
     <title>{title}</title>
+    <noscript>
+      <style>
+        .reveal {
+          opacity: 1;
+        }
+      </style>
+    </noscript>
   </head>
   <body class="bg-paper text-ink font-body antialiased">
     <slot />
@@ -48,6 +116,7 @@ const { title, description = "Diagonal Studios — Estudio de desarrollo de soft
         const animateCounter = (el: HTMLElement) => {
           const prefix = el.dataset.prefix ?? "";
           const target = parseFloat(el.dataset.target ?? "0");
+          if (Number.isNaN(target)) return;
           const suffix = el.dataset.suffix ?? "";
           const decimals = parseInt(el.dataset.decimals ?? "0");
           const duration = 2000;

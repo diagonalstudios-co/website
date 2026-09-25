@@ -4,11 +4,10 @@ client: "ELIX"
 kind: "Web · Catálogo digital"
 metric: "+40%"
 metricLabel: "consultas recibidas"
-img: "https://imglink.cc/cdn/OHWsMuH-O3.png"
-description: "Transformamos el catálogo de ELIX Fragancias en una experiencia digital moderna, facilitando la exploración de productos y marcas desde cualquier dispositivo y simplificando su gestión desde un panel de administración."
+description: "Rediseñamos el catálogo de ELIX Fragancias como una web moderna y logramos un +40% de consultas. Caso de éxito de desarrollo web a medida por Diagonal Studios."
 quote: "Antes teníamos todo nuestro catálogo en un PDF y era bastante difícil mostrar todo lo que ofrecemos. Ahora nuestros clientes pueden recorrer los productos, conocer las marcas y encontrar lo que buscan desde la web."
-quoteAuthor: "Equipo ELIX"
-quoteRole: "ELIX Fragancias"
+quoteAuthor: "Manuel Balihaut"
+quoteRole: "Co-founder, Elix"
 ----------------------------
 
 ## El problema

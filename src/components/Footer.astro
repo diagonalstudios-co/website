@@ -1,6 +1,6 @@
 ---
 const NAV = [
-  { label: "Home", href: "#top" },
+  { label: "Inicio", href: "#top" },
   { label: "Proceso", href: "#proceso" },
   { label: "Casos de éxito", href: "#casos" },
   { label: "Contacto", href: "#contacto" },
@@ -8,7 +8,7 @@ const NAV = [
 ---
 <footer class="bg-ink text-paper">
   <div class="mx-auto max-w-[1400px] px-6 md:px-10">
-    <div class="grid gap-12 border-t border-paper/15 py-16 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr]">
+    <div class="grid gap-12 border-t border-paper/15 py-16 md:grid-cols-2 lg:grid-cols-[2fr_1fr]">
       <div>
         <a href="#top" class="flex items-center gap-3">
           <svg width="100" height="107" viewBox="0 0 100 107" fill="none" class="h-8 w-auto" aria-hidden="true">
@@ -30,20 +30,6 @@ const NAV = [
             <li>
               <a href={n.href} class="text-paper/70 transition-colors hover:text-paper">
                 {n.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <div>
-        <p class="mb-5 font-mono text-xs uppercase tracking-[0.18em] text-paper/40">Redes</p>
-        <ul class="space-y-3">
-          {["Instagram", "LinkedIn"].map((s) => (
-            <li>
-              <a href="#" class="group inline-flex items-center gap-2 text-paper/70 transition-colors hover:text-paper">
-                {s}
-                <span class="opacity-0 transition-all group-hover:translate-x-1 group-hover:opacity-100">↗</span>
               </a>
             </li>
           ))}
