@@ -32,3 +32,5 @@ npm-debug.log*
 
 .agents
 skills-lock.json
+# Local Netlify folder
+.netlify

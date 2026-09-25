@@ -1,7 +1,7 @@
 // @ts-check
 import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
-import node from "@astrojs/node";
+import netlify from "@astrojs/netlify";
 import sitemap from "@astrojs/sitemap";
 
 // Astro doesn't load .env into process.env; API routes read runtime env
@@ -16,9 +16,13 @@ try {
 // https://astro.build/config
 export default defineConfig({
   site: "https://diagonalstudios.com.ar",
-  adapter: node({
-    mode: "standalone",
+  // imageCDN: false keeps Astro's build-time sharp pipeline (images are
+  // already optimized webp; no dependency on Netlify Image CDN).
+  adapter: netlify({
+    imageCDN: false,
   }),
+  // Sessions are unused: skip the Netlify Blobs runtime in the function.
+  session: false,
   integrations: [sitemap()],
   vite: {
     plugins: [tailwindcss()],
