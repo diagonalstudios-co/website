@@ -5,18 +5,47 @@ const resend = new Resend(import.meta.env.RESEND_API_KEY);
 
 export const prerender = false;
 
+const json = (body: string, status: number) =>
+  new Response(body, { status, headers: { "Content-Type": "application/json" } });
+
+const html = (body: string, status: number) =>
+  new Response(
+    `<!doctype html><html lang="es"><head><meta charset="utf-8"><title>Contacto — Diagonal Studios</title></head><body style="font-family: sans-serif; max-width: 640px; margin: 64px auto; padding: 0 24px;"><p>${body}</p><p><a href="/#contacto">Volver al formulario</a></p></body></html>`,
+    { status, headers: { "Content-Type": "text/html; charset=utf-8" } }
+  );
+
 export const POST: APIRoute = async ({ request }) => {
+  const contentType = request.headers.get("content-type") ?? "";
+  const isJson = contentType.includes("application/json");
+
+  let name: string;
+  let email: string;
+  let message: string;
+
   try {
-    const body = await request.json();
-    const { name, email, message } = body;
-
-    if (!name || !email || !message) {
-      return new Response(
-        JSON.stringify({ error: "Todos los campos son obligatorios" }),
-        { status: 400, headers: { "Content-Type": "application/json" } }
-      );
+    if (isJson) {
+      const body = await request.json();
+      ({ name, email, message } = body);
+    } else {
+      const form = await request.formData();
+      name = String(form.get("name") ?? "");
+      email = String(form.get("email") ?? "");
+      message = String(form.get("message") ?? "");
     }
+  } catch {
+    return isJson
+      ? json(JSON.stringify({ error: "Error al procesar la solicitud" }), 400)
+      : html("Error al procesar la solicitud. Intentá de nuevo.", 400);
+  }
 
+  if (!name || !email || !message) {
+    const error = "Todos los campos son obligatorios";
+    return isJson
+      ? json(JSON.stringify({ error }), 400)
+      : html("Faltan campos obligatorios. Completá nombre, email y mensaje.", 400);
+  }
+
+  try {
     const { data, error } = await resend.emails.send({
       from: "Diagonal Studios <onboarding@resend.dev>",
       to: ["diagonalstudios.co@gmail.com"],
@@ -36,20 +65,17 @@ export const POST: APIRoute = async ({ request }) => {
 
     if (error) {
       console.error("Resend error:", error);
-      return new Response(
-        JSON.stringify({ error: "Error al enviar el mensaje" }),
-        { status: 400, headers: { "Content-Type": "application/json" } }
-      );
+      return isJson
+        ? json(JSON.stringify({ error: "Error al enviar el mensaje" }), 400)
+        : html("No pudimos enviar el mensaje. Probá de nuevo en unos minutos.", 400);
     }
 
-    return new Response(
-      JSON.stringify({ success: true, id: data?.id }),
-      { status: 200, headers: { "Content-Type": "application/json" } }
-    );
+    return isJson
+      ? json(JSON.stringify({ success: true, id: data?.id }), 200)
+      : html("Mensaje enviado — te escribimos pronto.", 200);
   } catch {
-    return new Response(
-      JSON.stringify({ error: "Error al procesar la solicitud" }),
-      { status: 500, headers: { "Content-Type": "application/json" } }
-    );
+    return isJson
+      ? json(JSON.stringify({ error: "Error al procesar la solicitud" }), 500)
+      : html("Error al procesar la solicitud. Intentá de nuevo.", 500);
   }
 };

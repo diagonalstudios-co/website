@@ -1,0 +1,158 @@
+# Diagonal Studios — Contenido completo del sitio
+
+> Estudio integral de software con sede en Buenos Aires, Argentina. Diseñamos y desarrollamos apps web, productos SaaS y sistemas a medida, integrando diseño e ingeniería en un solo equipo. Idioma: español (es-AR).
+
+URL: https://diagonalstudios.com.ar/
+Contacto: diagonalstudios.co@gmail.com
+
+---
+
+## Inicio
+
+### Hero
+
+**Imaginá. — Nosotros nos encargamos del resto.**
+
+Diseñamos y desarrollamos software a medida, integrando diseño e ingeniería para transformar tus ideas en productos digitales únicos, con atención en cada detalle.
+
+Áreas: Diseño / Desarrollo / Implementación / Soporte.
+
+### Servicios: Un equipo, todo el ciclo
+
+Desde la primera idea hasta la puesta en producción, cada parte del producto se construye bajo una misma visión. Diseño, desarrollo e infraestructura trabajan en conjunto para crear soluciones coherentes, cuidadas y hechas a medida.
+
+1. **UX / UI Design** — Research · Experiencia de usuario · Prototipado · Sistemas de diseño.
+2. **Frontend** — Experiencias digitales · Interfaces adaptables · Interacción · Accesibilidad.
+3. **Backend** — Lógica de negocio · Arquitectura de sistemas · Datos · Integraciones.
+4. **Cloud / DevOps** — Infraestructura cloud · Automatización · Despliegue continuo · Observabilidad.
+5. **QA** — Testing automatizado · Pruebas funcionales · Calidad de software · Performance.
+6. **Soporte & Evolución** — Monitoreo · Mantenimiento · Iteración continua · Mejora del producto.
+
+### Cómo trabajamos
+
+De la primera idea a su evolución continua. Diseñamos, desarrollamos e implementamos cada producto como parte de un mismo proceso, con una visión compartida en cada etapa.
+
+1. **Diseño** — Entendemos el desafío, exploramos posibilidades y diseñamos experiencias intuitivas que toman forma desde el primer concepto.
+2. **Desarrollo** — Transformamos el diseño en software funcional, conectando cada detalle de la experiencia con una solución técnica sólida.
+3. **Implementación** — Preparamos, desplegamos y ponemos el producto en marcha, cuidando cada detalle para que esté listo para el mundo real.
+4. **Soporte** — Acompañamos el producto después del lanzamiento: lo mantenemos, optimizamos y hacemos crecer junto a las necesidades del negocio.
+
+### Casos de éxito
+
+- **ELIX — Web · Catálogo digital.** +40% de consultas recibidas. Ver: https://diagonalstudios.com.ar/casos/elix/
+- **Antifuga — SaaS · Plataforma de gestión financiera.** 8 semanas de la idea a un SaaS funcional. Ver: https://diagonalstudios.com.ar/casos/antifuga/
+
+### Sobre nosotros
+
+Convertimos ideas en productos digitales únicos. Unimos diseño, tecnología y estrategia para crear software a medida, pensado para resolver desafíos reales y llevar cada negocio más lejos.
+
+- **Misión:** Transformar ideas en productos digitales únicos, uniendo diseño e ingeniería para crear software a medida que marque la diferencia.
+- **Visión:** Construir un futuro donde cada negocio pueda transformar sus ideas en productos digitales extraordinarios, sin límites de acceso, recursos o capacidad técnica.
+- **Valores:** No creemos en soluciones genéricas. Cada negocio tiene una identidad, una visión y necesidades únicas. El software debe reflejarlas.
+
+### El estudio completo
+
+Una misma visión para todo el producto. Integramos diseño e ingeniería desde el primer concepto hasta la implementación, cuidando cada decisión y acompañando su evolución.
+
+Equipo:
+- **Ramiro Gil** — Product Engineer.
+- **Franco Arce** — Product Engineer.
+
+### En sus palabras (testimonios)
+
+> "Antes teníamos todo nuestro catálogo en un PDF y era bastante difícil mostrar todo lo que ofrecemos. Ahora nuestros clientes pueden recorrer los productos, conocer las marcas y encontrar lo que buscan desde la web."
+> — **Manuel Balihaut**, Co-founder, Elix
+
+> "La verdad que trabajar con ellos fue súper simple. Les contamos la idea que teníamos y fueron armando todo con nosotros hasta llegar a una web que nos encanta."
+> — **Genaro Lazzaro**, Co-founder, Elix
+
+### Contacto
+
+Contanos qué querés construir. Respondemos en menos de 24 horas con próximos pasos concretos.
+
+- Email: diagonalstudios.co@gmail.com
+- Ubicación: Buenos Aires.
+- Formulario en https://diagonalstudios.com.ar/#contacto (campos: nombre, email, mensaje).
+
+---
+
+## Caso: ELIX
+
+**Cliente:** ELIX · **Tipo:** Web · Catálogo digital · **Métrica:** +40% de consultas recibidas
+
+Rediseñamos el catálogo de ELIX Fragancias como una web moderna y logramos un +40% de consultas. Caso de éxito de desarrollo web a medida por Diagonal Studios.
+
+### El problema
+
+ELIX Fragancias contaba con un catálogo amplio de productos y distintas marcas de perfumería, pero toda esa información estaba concentrada en un PDF.
+
+Esto hacía que mostrar el catálogo y encontrar un producto concreto fuera menos práctico, especialmente desde dispositivos móviles. Además, actualizar la información implicaba trabajar sobre un formato que no estaba pensado para una experiencia digital.
+
+El desafío era transformar todo ese contenido en una experiencia más clara, accesible y fácil de mantener.
+
+### Nuestra solución
+
+Diseñamos y desarrollamos una plataforma web enfocada en la exploración de productos.
+
+Creamos una estructura de navegación por categorías y marcas, junto con páginas individuales para cada producto. La experiencia fue pensada para que los clientes puedan recorrer el catálogo, conocer cada producto y realizar consultas directamente desde la web.
+
+A nivel interno, desarrollamos un panel de administración para que el equipo de ELIX pueda mantener actualizado el catálogo y gestionar su contenido de forma centralizada.
+
+### Los resultados
+
+ELIX pasó de tener su catálogo concentrado en un PDF a contar con una plataforma propia para presentar y gestionar su propuesta de productos.
+
+- **+40% de consultas recibidas** a través de la web.
+- **Una nueva presencia digital** para mostrar productos y marcas de forma más accesible.
+- **Mayor autonomía para el equipo** al contar con herramientas propias para mantener actualizado el catálogo.
+- **Una base preparada para crecer** y seguir incorporando productos, marcas y contenido.
+
+El proyecto no solo digitalizó el catálogo: creó una nueva forma de presentar la propuesta de ELIX y de conectar sus productos con potenciales clientes.
+
+### Testimonio del cliente
+
+> "Antes teníamos todo nuestro catálogo en un PDF y era bastante difícil mostrar todo lo que ofrecemos. Ahora nuestros clientes pueden recorrer los productos, conocer las marcas y encontrar lo que buscan desde la web."
+> — **Manuel Balihaut**, Co-founder, Elix
+
+---
+
+## Caso: Antifuga
+
+**Cliente:** Antifuga · **Tipo:** SaaS · Plataforma de gestión financiera · **Métrica:** 8 semanas de la idea a un SaaS funcional
+
+De la idea a un SaaS funcional en 8 semanas: creamos Antifuga, la plataforma de gestión financiera que ayuda a los comercios a organizar sus finanzas.
+
+### El problema
+
+El equipo de Antifuga llegó a Diagonal Studios con una idea: crear una herramienta que ayudara a los comerciantes a tener mayor claridad sobre las finanzas de sus negocios.
+
+Habían identificado un problema recurrente: muchos comerciantes no saben cuánto ganan realmente. Los ingresos, costos y gastos suelen estar registrados en planillas de Excel o anotaciones manuales, lo que dificulta entender la rentabilidad y seguir la evolución del negocio.
+
+El desafío era convertir esa necesidad en un producto digital simple de usar, capaz de ordenar la información y acompañar la gestión financiera de distintos tipos de comercios.
+
+### Nuestra solución
+
+Diseñamos y desarrollamos Antifuga desde cero, definiendo tanto la experiencia de usuario como la arquitectura necesaria para convertir la idea en un producto SaaS.
+
+La plataforma permite registrar ingresos, costos fijos, costos variables y otros movimientos, y los transforma en indicadores que facilitan la lectura de la situación financiera del negocio.
+
+Incorporamos seguimiento mensual, historial y comparación entre períodos, además de la posibilidad de administrar múltiples comercios de forma independiente desde una misma cuenta.
+
+El resultado fue una herramienta que reúne en un mismo lugar la información que antes podía estar dispersa entre diferentes registros y la presenta de una forma más fácil de interpretar.
+
+### Los resultados
+
+Antifuga se convirtió en una plataforma lista para ser utilizada por comercios y continuar evolucionando junto con el producto.
+
+- **8 semanas de desarrollo** — desde la definición inicial hasta una primera versión funcional.
+- **Gestión de múltiples comercios** — cada negocio cuenta con su propio espacio e información independiente.
+- **Seguimiento financiero** — evolución mensual e historial para analizar el desempeño a lo largo del tiempo.
+- **Comparación entre períodos** — herramientas para identificar cambios en los resultados de un negocio.
+- **Arquitectura SaaS** — una base preparada para incorporar nuevas funcionalidades y acompañar el crecimiento del producto.
+
+Antifuga pasó de una idea a una herramienta concreta para la gestión financiera de comercios, con una base sobre la que seguir construyendo.
+
+### Testimonio del cliente
+
+> "Pasamos de una idea a una plataforma que hoy usan nuestros comercios a diario. Diagonal entendió el negocio antes de escribir la primera línea de código."
+> — **Equipo, Antifuga**

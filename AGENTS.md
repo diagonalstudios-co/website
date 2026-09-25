@@ -22,9 +22,16 @@ marketing site for Diagonal Studios. No monorepo, no tests, no linter, no CI.
   duplicating the head.
 - SEO plumbing: `site: "https://diagonalstudios.com.ar"` in `astro.config.mjs`
   feeds `@astrojs/sitemap` (`dist/client/sitemap-index.xml`) and absolute
-  canonical/OG URLs. `public/robots.txt` points at the sitemap.
-  `src/pages/404.astro` is `noindex` (no canonical). `public/og.png` is the
-  1200×630 social card referenced by `og:image`.
+  canonical/OG URLs. `public/robots.txt` points at the sitemap, names AI
+  crawlers explicitly (Allow) and blocks only `CCBot`. `src/pages/404.astro` is
+  `noindex` (no canonical). `public/og.png` is the 1200×630 social card
+  referenced by `og:image`.
+- AI-SEO files: `public/llms.txt` (site index for LLMs, llmstxt.org format) and
+  `public/llms-full.txt` (full site copy in one Markdown) are hand-maintained —
+  update BOTH whenever visible copy changes.
+- Contact form: `ContactForm.astro` POSTs JSON to `/api/contact` (JS path);
+  the `<form>` also has `action`/`method` as no-JS fallback and the API
+  branches on Content-Type (JSON → JSON responses, form-data → HTML responses).
 - Partial SSR: `astro.config.mjs` uses `@astrojs/node` (standalone). Everything
   is prerendered except `src/pages/api/contact.ts` (`prerender = false`).
   Build output: `dist/client/` + `dist/server/entry.mjs`.

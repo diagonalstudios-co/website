@@ -1,0 +1,31 @@
+# Diagonal Studios — Estudio de desarrollo de software
+
+> Estudio integral de software en Buenos Aires, Argentina. Diseñamos y desarrollamos apps web, productos SaaS y sistemas a medida: diseño UX/UI, frontend, backend, cloud/DevOps, QA y soporte continuo. Equipo de Ramiro Gil y Franco Arce. Idioma: español (es-AR).
+
+## Páginas principales
+
+- [Inicio](https://diagonalstudios.com.ar/): servicios, proceso de trabajo, casos de éxito, equipo y contacto.
+- [Caso ELIX](https://diagonalstudios.com.ar/casos/elix/): catálogo digital para ELIX Fragancias — +40% de consultas recibidas.
+- [Caso Antifuga](https://diagonalstudios.com.ar/casos/antifuga/): SaaS de gestión financiera para comercios — de la idea a producto funcional en 8 semanas.
+
+## Servicios
+
+- Diseño UX/UI: research, experiencia de usuario, prototipado, sistemas de diseño.
+- Frontend: interfaces adaptables, interacción, accesibilidad.
+- Backend: lógica de negocio, arquitectura de sistemas, datos, integraciones.
+- Cloud/DevOps: infraestructura cloud, automatización, despliegue continuo, observabilidad.
+- QA: testing automatizado, pruebas funcionales, calidad y performance.
+- Soporte & evolución: monitoreo, mantenimiento e iteración continua.
+
+## Proceso
+
+1. Diseño — entendemos el desafío y diseñamos la experiencia desde el primer concepto.
+2. Desarrollo — transformamos el diseño en software funcional con una base técnica sólida.
+3. Implementación — desplegamos y ponemos el producto en marcha.
+4. Soporte — mantenemos, optimizamos y hacemos crecer el producto tras el lanzamiento.
+
+## Contacto
+
+- Email: diagonalstudios.co@gmail.com
+- Formulario: https://diagonalstudios.com.ar/#contacto
+- Ubicación: Buenos Aires, Argentina (trabajo remoto).

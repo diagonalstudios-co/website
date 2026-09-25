@@ -18,23 +18,41 @@ const {
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const ogImage = new URL("/og.png", Astro.site).href;
 
-const siteLd: Record<string, unknown>[] = [
-  {
-    "@type": "Organization",
-    name: "Diagonal Studios",
-    url: new URL("/", Astro.site).href,
-    email: "diagonalstudios.co@gmail.com",
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Buenos Aires",
-      addressCountry: "AR",
-    },
+const organizationLd = {
+  "@type": "Organization",
+  "@id": new URL("/#organization", Astro.site).href,
+  name: "Diagonal Studios",
+  url: new URL("/", Astro.site).href,
+  logo: ogImage,
+  email: "diagonalstudios.co@gmail.com",
+  description:
+    "Estudio integral de software en Buenos Aires, Argentina: diseño UX/UI, frontend, backend, cloud/DevOps, QA y soporte para apps web, productos SaaS y sistemas a medida.",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Buenos Aires",
+    addressCountry: "AR",
   },
+  areaServed: ["Buenos Aires", "Argentina"],
+  knowsAbout: [
+    "Diseño UX/UI",
+    "Desarrollo frontend",
+    "Desarrollo backend",
+    "Cloud y DevOps",
+    "Testing y QA",
+    "Productos SaaS",
+    "Software a medida",
+  ],
+};
+
+const siteLd: Record<string, unknown>[] = [
+  organizationLd,
   {
     "@type": "WebSite",
+    "@id": new URL("/#website", Astro.site).href,
     name: "Diagonal Studios",
     url: new URL("/", Astro.site).href,
     inLanguage: "es-AR",
+    publisher: { "@id": organizationLd["@id"] },
   },
 ];
 ---

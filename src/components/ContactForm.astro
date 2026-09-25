@@ -19,7 +19,7 @@ import NodeNetwork from "./svg/NodeNetwork.astro";
         </div>
       </div>
 
-      <form id="contact-form" class="reveal flex flex-col gap-8" style="animation-delay: 0.12s">
+      <form id="contact-form" action="/api/contact" method="post" class="reveal flex flex-col gap-8" style="animation-delay: 0.12s">
         <label class="group block">
           <span class="font-mono text-xs uppercase tracking-[0.18em] text-paper/50">Nombre</span>
           <input
