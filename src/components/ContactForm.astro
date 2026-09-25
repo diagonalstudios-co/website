@@ -20,6 +20,15 @@ import NodeNetwork from "./svg/NodeNetwork.astro";
       </div>
 
       <form id="contact-form" action="/api/contact" method="post" class="reveal flex flex-col gap-8" style="animation-delay: 0.12s">
+        <input
+          type="text"
+          name="website"
+          tabindex="-1"
+          autocomplete="off"
+          aria-hidden="true"
+          class="absolute -left-[9999px] h-px w-px opacity-0"
+        />
+        <input type="hidden" name="formTime" id="form_time" value="" />
         <label class="group block">
           <span class="font-mono text-xs uppercase tracking-[0.18em] text-paper/50">Nombre</span>
           <input
@@ -71,6 +80,12 @@ import NodeNetwork from "./svg/NodeNetwork.astro";
   const btnText = document.getElementById("btn-text")!;
   const btnArrow = document.getElementById("btn-arrow")!;
   const formMessage = document.getElementById("form-message")!;
+  const timeInput = document.getElementById("form_time") as HTMLInputElement | null;
+
+  const stampFormTime = () => {
+    if (timeInput) timeInput.value = String(Date.now());
+  };
+  stampFormTime();
 
   form?.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -79,6 +94,8 @@ import NodeNetwork from "./svg/NodeNetwork.astro";
     const name = formData.get("name") as string;
     const email = formData.get("email") as string;
     const message = formData.get("message") as string;
+    const website = (formData.get("website") as string) ?? "";
+    const formTime = (formData.get("formTime") as string) ?? "";
 
     btn.disabled = true;
     btnText.textContent = "Enviando...";
@@ -89,7 +106,7 @@ import NodeNetwork from "./svg/NodeNetwork.astro";
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, message }),
+        body: JSON.stringify({ name, email, message, website, formTime }),
       });
 
       const data = await res.json();
@@ -99,6 +116,7 @@ import NodeNetwork from "./svg/NodeNetwork.astro";
         formMessage.classList.remove("hidden", "text-red-400");
         formMessage.classList.add("text-emerald-400");
         form.reset();
+        stampFormTime();
       } else {
         formMessage.textContent = data.error || "Error al enviar el mensaje";
         formMessage.classList.remove("hidden", "text-emerald-400");

@@ -17,6 +17,30 @@ const html = (body: string, status: number) =>
     { status, headers: { "Content-Type": "text/html; charset=utf-8" } }
   );
 
+// Fake success so bots can't tell they were dropped (no email is sent).
+const fakeSuccess = (isJson: boolean, reason: string) => {
+  console.warn(`contact: spam dropped (${reason})`);
+  return isJson
+    ? json(JSON.stringify({ success: true }), 200)
+    : html("Mensaje enviado — te escribimos pronto.", 200);
+};
+
+// formTime = page-load timestamp (ms) filled in by ContactForm's script.
+// Must be between 7 days old and 1 day in the future (clock-skew tolerance)
+// and submitted at least 3s after load; a slightly future value (client clock
+// ahead) is accepted.
+const formTimeOk = (value: string): boolean => {
+  const t = Number(value);
+  const now = Date.now();
+  if (!Number.isFinite(t) || t <= 0) return false;
+  const elapsed = now - t;
+  return (
+    t > now - 604_800_000 &&
+    t < now + 86_400_000 &&
+    (elapsed >= 3000 || elapsed < 0)
+  );
+};
+
 export const POST: APIRoute = async ({ request }) => {
   const contentType = request.headers.get("content-type") ?? "";
   const isJson = contentType.includes("application/json");
@@ -24,21 +48,33 @@ export const POST: APIRoute = async ({ request }) => {
   let name: string;
   let email: string;
   let message: string;
+  let website = "";
+  let formTime = "";
 
   try {
     if (isJson) {
       const body = await request.json();
-      ({ name, email, message } = body);
+      ({ name, email, message, website = "", formTime = "" } = body);
     } else {
       const form = await request.formData();
       name = String(form.get("name") ?? "");
       email = String(form.get("email") ?? "");
       message = String(form.get("message") ?? "");
+      website = String(form.get("website") ?? "");
+      formTime = String(form.get("formTime") ?? "");
     }
+    website = String(website);
+    formTime = String(formTime);
   } catch {
     return isJson
       ? json(JSON.stringify({ error: "Error al procesar la solicitud" }), 400)
       : html("Error al procesar la solicitud. Intentá de nuevo.", 400);
+  }
+
+  // Anti-spam: honeypot must stay empty; JSON requires a valid formTime,
+  // the no-JS urlencoded path may omit it (no script runs to fill it).
+  if (website.trim() !== "" || (isJson ? !formTimeOk(formTime) : formTime !== "" && !formTimeOk(formTime))) {
+    return fakeSuccess(isJson, website.trim() !== "" ? "honeypot" : "formTime");
   }
 
   if (!name || !email || !message) {
