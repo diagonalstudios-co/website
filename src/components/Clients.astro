@@ -1,17 +1,11 @@
 ---
+import elixLogo from "./images/ELIX Logo.png";
+import antifugaLogo from "./images/Antifuga Logo.png";
+
 const CLIENTS = [
-  "NÓRDICO",
-  "Vértice",
-  "Atlas·Pay",
-  "Kuiper",
-  "Meridian",
-  "FormaLab",
-  "Öhm",
-  "Cardinal",
-  "Delta9",
-  "Sena",
+  { src: elixLogo.src, alt: "Logo de Elix" },
+  { src: antifugaLogo.src, alt: "Logo de Antifuga" },
 ];
-const doubled = [...CLIENTS, ...CLIENTS];
 ---
 <section class="border-b border-g-200 bg-paper py-16 md:py-20">
   <div class="mx-auto max-w-[1400px] px-6 md:px-10">
@@ -22,6 +16,7 @@ const doubled = [...CLIENTS, ...CLIENTS];
           Marcas que confían<br />en nosotros
         </h2>
       </div>
+{/*
       <p
         class="counter-value font-display text-4xl font-black leading-none md:text-5xl lg:text-7xl"
         style="font-stretch: 75%"
@@ -33,18 +28,18 @@ const doubled = [...CLIENTS, ...CLIENTS];
         +30
         <span class="ml-3 align-middle font-body text-sm font-medium text-g-500">marcas y contando</span>
       </p>
+*/}
     </div>
   </div>
 
   <div class="marquee relative mt-14 overflow-hidden border-y border-g-200 py-6">
-    <div class="marquee-track flex w-max items-center gap-12 px-8 md:gap-16">
-      {doubled.map((name, i) => (
-        <span
-          class="font-display text-xl font-bold uppercase tracking-tight text-g-300 transition-colors duration-300 hover:text-ink md:text-2xl lg:text-3xl"
-          style="font-stretch: 75%"
-        >
-          {name}
-        </span>
+    <div class="flex items-center justify-center gap-12 px-8 md:gap-16">
+      {CLIENTS.map((logo) => (
+        <img
+          src={logo.src}
+          alt={logo.alt}
+          class="max-h-11 max-w-40 opacity-50 md:max-h-14 md:max-w-48"
+        />
       ))}
     </div>
   </div>

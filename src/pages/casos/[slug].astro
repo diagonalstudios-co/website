@@ -12,13 +12,12 @@ export async function getStaticPaths() {
 
 const { caseEntry } = Astro.props;
 const { Content } = await render(caseEntry);
-const { client, kind, metric, metricLabel, img, description, quote, quoteAuthor, quoteRole } = caseEntry.data;
+const { client, kind, metric, metricLabel, description, quote, quoteAuthor, quoteRole } = caseEntry.data;
 ---
 
 <CaseLayout
   title={`${client}`}
   description={description}
-  img={img}
   client={client}
   kind={kind}
   metric={metric}

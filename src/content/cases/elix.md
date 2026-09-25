@@ -1,41 +1,39 @@
 ---
 
 client: "ELIX"
-kind: "E-commerce · Web"
-metric: "490+"
-metricLabel: "productos digitalizados"
-img: "https://elixfragancias.com.ar/"
-description: "Transformamos el catálogo de productos de ELIX Fragancias en una experiencia digital moderna, permitiendo a sus clientes descubrir y consultar más de 490 productos desde cualquier dispositivo."
-quote: "Queríamos dejar atrás el catálogo tradicional y tener una experiencia digital que realmente representara a ELIX. Ahora nuestros clientes pueden descubrir nuestros productos de una manera mucho más simple."
+kind: "Web · Catálogo digital"
+metric: "+40%"
+metricLabel: "consultas recibidas"
+img: "https://imglink.cc/cdn/OHWsMuH-O3.png"
+description: "Transformamos el catálogo de ELIX Fragancias en una experiencia digital moderna, facilitando la exploración de productos y marcas desde cualquier dispositivo y simplificando su gestión desde un panel de administración."
+quote: "Antes teníamos todo nuestro catálogo en un PDF y era bastante difícil mostrar todo lo que ofrecemos. Ahora nuestros clientes pueden recorrer los productos, conocer las marcas y encontrar lo que buscan desde la web."
 quoteAuthor: "Equipo ELIX"
 quoteRole: "ELIX Fragancias"
 ----------------------------
 
 ## El problema
 
-ELIX tenía una gran variedad de productos, pero toda esa propuesta necesitaba una experiencia digital que estuviera a la altura.
+ELIX Fragancias contaba con un catálogo amplio de productos y distintas marcas de perfumería, pero toda esa información estaba concentrada en un PDF.
 
-El catálogo tradicional cumplía su función, pero no ofrecía la experiencia que los clientes esperan hoy: explorar productos fácilmente, descubrir nuevas fragancias, conocer las diferentes marcas y encontrar rápidamente lo que estaban buscando.
+Esto hacía que mostrar el catálogo y encontrar un producto concreto fuera menos práctico, especialmente desde dispositivos móviles. Además, actualizar la información implicaba trabajar sobre un formato que no estaba pensado para una experiencia digital.
 
-La información estaba ahí. El desafío era convertirla en una experiencia.
+El desafío era transformar todo ese contenido en una experiencia más clara, accesible y fácil de mantener.
 
 ## Nuestra solución
 
-Transformamos el catálogo tradicional de ELIX en una plataforma web pensada para descubrir productos.
+Diseñamos y desarrollamos una plataforma web enfocada en la exploración de productos.
 
-Diseñamos una navegación simple y visual que permite explorar el catálogo por categorías, marcas y productos destacados. Cada fragancia cuenta con su propia página, con la información necesaria para conocerla y una forma directa de realizar consultas.
+Creamos una estructura de navegación por categorías y marcas, junto con páginas individuales para cada producto. La experiencia fue pensada para que los clientes puedan recorrer el catálogo, conocer cada producto y realizar consultas directamente desde la web.
 
-También desarrollamos una experiencia responsive para que todo el catálogo pueda consultarse cómodamente desde cualquier dispositivo.
-
-No se trataba simplemente de pasar un catálogo a una página web. Se trataba de convertir la información en una experiencia que ayudara a descubrir ELIX.
+A nivel interno, desarrollamos un panel de administración para que el equipo de ELIX pueda mantener actualizado el catálogo y gestionar su contenido de forma centralizada.
 
 ## Los resultados
 
-El nuevo sitio convirtió el catálogo de ELIX en una experiencia digital preparada para crecer:
+ELIX pasó de tener su catálogo concentrado en un PDF a contar con una plataforma propia para presentar y gestionar su propuesta de productos.
 
-* **490+ productos digitalizados** — todo el catálogo disponible para explorar desde la web
-* **20+ marcas integradas** — una estructura organizada para descubrir diferentes propuestas de perfumería
-* **6 categorías de productos** — navegación simple para encontrar rápidamente lo que cada cliente busca
-* **Experiencia responsive** — el catálogo funciona de forma adaptada en desktop, tablet y mobile
+* **+40% de consultas recibidas** a través de la web.
+* **Una nueva presencia digital** para mostrar productos y marcas de forma más accesible.
+* **Mayor autonomía para el equipo** al contar con herramientas propias para mantener actualizado el catálogo.
+* **Una base preparada para crecer** y seguir incorporando productos, marcas y contenido.
 
-Lo que antes era un catálogo estático se convirtió en una experiencia digital pensada para que cada producto tenga su lugar.
+El proyecto no solo digitalizó el catálogo: creó una nueva forma de presentar la propuesta de ELIX y de conectar sus productos con potenciales clientes.

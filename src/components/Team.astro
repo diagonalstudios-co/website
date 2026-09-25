@@ -1,9 +1,10 @@
 ---
+import ramiroImg from "./images/Ramiro Gil.jpeg";
+import francoImg from "./images/Franco Arce.jpeg";
+
 const TEAM = [
-  { name: "Sol Ramírez", role: "Design Lead", img: "https://images.unsplash.com/photo-1654780345432-79b8bf62def8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600" },
-  { name: "Iván Costa", role: "Engineering", img: "https://images.unsplash.com/photo-1652172100914-c5b691730756?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600" },
-  { name: "Team @ HQ", role: "Estudio completo", img: "https://images.unsplash.com/photo-1663438380019-b6997345e87e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600" },
-  { name: "Nina Ortiz", role: "Cloud / DevOps", img: "https://images.unsplash.com/photo-1553877522-43269d4ea984?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600" },
+  { name: "Ramiro Gil", role: "Product Engineer", img: ramiroImg.src },
+  { name: "Franco Arce", role: "Product Engineer", img: francoImg.src },
 ];
 ---
 <section class="border-t border-g-200 bg-paper py-24 md:py-32">
@@ -13,7 +14,7 @@ const TEAM = [
         El estudio<br />completo
       </h2>
       <p class="self-end text-g-500">
-        Somos un grupo compacto de diseñadores e ingenieros que trabaja como una sola unidad. Sin capas de gestión entre tu idea y la gente que la construye — todos en la misma mesa, del primer boceto al deploy final.
+        Una misma visión para todo el producto. Integramos diseño e ingeniería desde el primer concepto hasta la implementación, cuidando cada decisión y acompañando su evolución.
       </p>
     </div>
 
@@ -39,6 +40,7 @@ const TEAM = [
           </figcaption>
         </figure>
       ))}
+      <div class="hidden bg-paper lg:col-span-2 lg:block" aria-hidden="true"></div>
     </div>
   </div>
 </section>

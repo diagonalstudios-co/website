@@ -1,4 +1,7 @@
 ---
+import elixImg from "./images/Elix.png";
+import antifugaImg from "./images/Antifuga.png";
+
 const CASES = [
   {
     slug: "elix",
@@ -9,20 +12,20 @@ const CASES = [
     metricPrefix: "+",
     metricSuffix: "%",
     metricDecimals: "0",
-    metricLabel: "conversión de checkout",
-    img: "https://imglink.cc/cdn/q1e-rrvJeY.png",
+    metricLabel: "de consultas recibidas",
+    img: elixImg.src,
   },
   {
-    slug: "kuiper",
-    client: "Kuiper",
+    slug: "antifuga",
+    client: "Antifuga",
     kind: "SaaS · Plataforma B2B",
-    metric: "8 sem",
+    metric: "8 semanas",
     metricTarget: "8",
     metricPrefix: "",
-    metricSuffix: " sem",
+    metricSuffix: " semanas",
     metricDecimals: "0",
     metricLabel: "de idea a MVP en producción",
-    img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+    img: antifugaImg.src,
   },
   
 ];
@@ -48,12 +51,12 @@ const CASES = [
           class="reveal group flex flex-col bg-paper p-6 transition-colors duration-300 hover:bg-g-100"
           style={`animation-delay: ${i * 0.1}s`}
         >
-          <div class="relative mb-6 aspect-[4/3] overflow-hidden bg-g-200">
+          <div class="relative mb-6 aspect-[4/3] overflow-hidden bg-paper">
             <img
               src={c.img}
-              alt={`Mockup del proyecto de ${c.client}`}
+              alt={`Logo de ${c.client}`}
               loading="lazy"
-              class="h-full w-full object-cover grayscale contrast-125 transition-transform duration-700 group-hover:scale-105"
+              class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
             <span class="absolute left-0 top-0 bg-ink px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-paper">
               {String(i + 1).padStart(2, "0")}
@@ -88,6 +91,7 @@ const CASES = [
           </a>
         </article>
       ))}
+      <div class="hidden bg-paper lg:block" aria-hidden="true"></div>
     </div>
   </div>
 </section>

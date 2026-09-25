@@ -5,7 +5,6 @@ import LogoMark from "@components/svg/LogoMark.astro";
 interface Props {
   title: string;
   description: string;
-  img: string;
   client: string;
   kind: string;
   metric: string;
@@ -15,13 +14,13 @@ interface Props {
   quoteRole: string;
 }
 
-const { title, description, img, client, kind, metric, metricLabel, quote, quoteAuthor, quoteRole } = Astro.props;
+const { title, description, client, kind, metric, metricLabel, quote, quoteAuthor, quoteRole } = Astro.props;
 
 const metricMatch = metric.match(/^([^0-9]*)([0-9]+\.?[0-9]*)(.*)$/);
 const metricPrefix = metricMatch?.[1] ?? "";
-const metricTarget = metricMatch?.[2] ?? "0";
+const metricTarget = metricMatch?.[2];
 const metricSuffix = metricMatch?.[3] ?? "";
-const metricDecimals = metricTarget.includes(".") ? metricTarget.split(".")[1].length : 0;
+const metricDecimals = metricTarget && metricTarget.includes(".") ? metricTarget.split(".")[1].length : 0;
 ---
 <!doctype html>
 <html lang="es">
@@ -71,7 +70,7 @@ const metricDecimals = metricTarget.includes(".") ? metricTarget.split(".")[1].l
             Volver a casos
           </a>
 
-          <div class="reveal grid gap-10 md:grid-cols-2 md:items-center">
+          <div class="reveal max-w-3xl">
             <div>
               <p class="mb-4 font-mono text-xs uppercase tracking-[0.18em] text-g-500">— {kind}</p>
               <h1 class="font-display text-5xl font-black uppercase leading-[0.9] md:text-7xl lg:text-8xl" style="font-stretch: 75%">
@@ -82,26 +81,21 @@ const metricDecimals = metricTarget.includes(".") ? metricTarget.split(".")[1].l
               </p>
 
               <div class="mt-10 border-t border-g-200 pt-8">
-                <p
-                  class="counter-value font-display text-6xl font-black leading-none md:text-7xl"
-                  style="font-stretch: 75%"
-                  data-prefix={metricPrefix}
-                  data-target={metricTarget}
-                  data-suffix={metricSuffix}
-                  data-decimals={metricDecimals}
-                >
+              <p
+                class:list={[
+                  metricTarget && "counter-value",
+                  "font-display text-6xl font-black leading-none md:text-7xl",
+                ]}
+                style="font-stretch: 75%"
+                data-prefix={metricPrefix}
+                data-target={metricTarget}
+                data-suffix={metricSuffix}
+                data-decimals={metricDecimals}
+              >
                   {metric}
                 </p>
                 <p class="mt-2 text-sm text-g-500">{metricLabel}</p>
               </div>
-            </div>
-
-            <div class="relative aspect-[4/3] overflow-hidden bg-g-200">
-              <img
-                src={img}
-                alt={`Mockup del proyecto de ${client}`}
-                class="h-full w-full object-cover grayscale contrast-125"
-              />
             </div>
           </div>
         </div>
@@ -199,8 +193,9 @@ const metricDecimals = metricTarget.includes(".") ? metricTarget.split(".")[1].l
         const easeOutQuart = (t: number) => 1 - Math.pow(1 - t, 4);
 
         const animateCounter = (el: HTMLElement) => {
+          const target = parseFloat(el.dataset.target ?? "");
+          if (Number.isNaN(target)) return;
           const prefix = el.dataset.prefix ?? "";
-          const target = parseFloat(el.dataset.target ?? "0");
           const suffix = el.dataset.suffix ?? "";
           const decimals = parseInt(el.dataset.decimals ?? "0");
           const duration = 2000;
