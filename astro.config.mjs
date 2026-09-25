@@ -4,6 +4,15 @@ import tailwindcss from "@tailwindcss/vite";
 import node from "@astrojs/node";
 import sitemap from "@astrojs/sitemap";
 
+// Astro doesn't load .env into process.env; API routes read runtime env
+// (Astro 6+ inlines import.meta.env at build time, so it can't be used for
+// secrets). This covers dev/preview; deployed hosts inject env directly.
+try {
+  process.loadEnvFile();
+} catch {
+  /* .env optional: fresh clones and CI builds don't have it */
+}
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://diagonalstudios.com.ar",
@@ -12,8 +21,6 @@ export default defineConfig({
   }),
   integrations: [sitemap()],
   vite: {
-    // @tailwindcss/vite pulls vite@8 while astro bundles vite@6, so the plugin
-    // types don't line up; the runtime plugin is compatible with both.
-    plugins: /** @type {any} */ ([tailwindcss()]),
+    plugins: [tailwindcss()],
   },
 });

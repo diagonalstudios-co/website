@@ -1,7 +1,8 @@
 # AGENTS.md
 
-Astro 5 + TypeScript (strict) + Tailwind v4 single-package site: Spanish-language
+Astro 7 + TypeScript (strict) + Tailwind v4 single-package site: Spanish-language
 marketing site for Diagonal Studios. No monorepo, no tests, no linter, no CI.
+Node >= 22.12 required (Astro 7 engines); local dev uses Node 24.
 
 ## Commands
 
@@ -36,11 +37,17 @@ marketing site for Diagonal Studios. No monorepo, no tests, no linter, no CI.
   is prerendered except `src/pages/api/contact.ts` (`prerender = false`).
   Build output: `dist/client/` + `dist/server/entry.mjs`.
 - Contact form: `ContactForm.astro` POSTs JSON to `/api/contact`, which emails
-  via Resend. Needs `RESEND_API_KEY` in `.env` (gitignored — fresh clones lack
-  it; build still succeeds, form returns 500). From/to addresses are hardcoded
-  in `src/pages/api/contact.ts`.
+  via Resend. The route reads `process.env.RESEND_API_KEY` at RUNTIME — Astro 6+
+  inlines `import.meta.env` into the build, so never use it for secrets.
+  `astro.config.mjs` calls `process.loadEnvFile()` so dev/preview pick up the
+  gitignored `.env` (fresh clones lack it; build still succeeds, form returns
+  500); a deployed host must inject the env var instead. From/to addresses are
+  hardcoded in `src/pages/api/contact.ts`. Astro's CSRF origin check applies to
+  form-encoded POSTs: behind a reverse proxy forward Host/proto correctly or
+  same-origin posts will 403 (`security.checkOrigin`).
 - Content collection `cases` = `src/content/cases/*.md`, schema in
-  `src/content.config.ts`; frontmatter must match the zod schema exactly.
+  `src/content.config.ts` (glob loader, `z` from `astro/zod`); frontmatter must
+  match the zod schema exactly.
 - Case data is DUPLICATED: `/casos/[slug]` pages come from the collection, but
   homepage cards in `src/components/SuccessStories.astro` use a hardcoded
   `CASES` array. Adding/editing a case = update the markdown AND that array.

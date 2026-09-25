@@ -1,7 +1,10 @@
 import type { APIRoute } from "astro";
 import { Resend } from "resend";
 
-const resend = new Resend(import.meta.env.RESEND_API_KEY);
+// process.env instead of import.meta.env: Astro 6+ inlines import.meta.env at
+// build time, which would bake the key into the bundle (or freeze it as
+// undefined on builds without .env). Runtime read keeps deploy-time config.
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export const prerender = false;
 
