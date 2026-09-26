@@ -22,7 +22,7 @@ El desafío era transformar todo ese contenido en una experiencia más clara, ac
 
 Diseñamos y desarrollamos una plataforma web enfocada en la exploración de productos.
 
-Creamos una estructura de navegación por categorías y marcas, junto con páginas individuales para cada producto. La experiencia fue pensada para que los clientes puedan recorrer el catálogo, conocer cada producto y realizar consultas directamente desde la web.
+Creamos una estructura de navegación por categorías y marcas, junto con páginas individuales para cada producto. La experiencia fue pensada para que los clientes puedan recorrer el catálogo, conocer cada producto y realizar consultas desde la web hacia los medios de comunicación utilizados por Elix.
 
 A nivel interno, desarrollamos un panel de administración para que el equipo de ELIX pueda mantener actualizado el catálogo y gestionar su contenido de forma centralizada.
 
