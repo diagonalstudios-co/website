@@ -19,7 +19,7 @@ import NodeNetwork from "./svg/NodeNetwork.astro";
         </div>
       </div>
 
-      <form id="contact-form" action="/api/contact" method="post" class="reveal flex flex-col gap-8" style="animation-delay: 0.12s">
+      <form id="contact-form" action="/api/contact" method="post" class="reveal flex flex-col gap-8 ph-no-capture" data-ph-no-capture style="animation-delay: 0.12s">
         <input
           type="text"
           name="website"
@@ -112,6 +112,7 @@ import NodeNetwork from "./svg/NodeNetwork.astro";
       const data = await res.json();
 
       if (res.ok && data.success) {
+        document.dispatchEvent(new CustomEvent("diagonal:track", { detail: { name: "contact_form_submitted" } }));
         formMessage.textContent = "Mensaje enviado — te escribimos pronto";
         formMessage.classList.remove("hidden", "text-red-400");
         formMessage.classList.add("text-emerald-400");

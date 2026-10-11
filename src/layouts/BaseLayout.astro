@@ -116,6 +116,24 @@ const siteLd: Record<string, unknown>[] = [
   <body class="bg-paper text-ink font-body antialiased">
     <slot />
     <script>
+      import posthog from "posthog-js";
+
+      const posthogKey = import.meta.env.PUBLIC_POSTHOG_KEY;
+      if (posthogKey) {
+        posthog.init(posthogKey, {
+          api_host: import.meta.env.PUBLIC_POSTHOG_HOST || "https://us.i.posthog.com",
+          capture_pageview: true,
+          capture_pageleave: true,
+          // Enables clicks, scroll depth, heatmaps and replay interactions.
+          autocapture: true,
+        });
+
+        document.addEventListener("diagonal:track", ((event: CustomEvent<{ name: string; properties?: Record<string, string | number | boolean> }>) => {
+          posthog.capture(event.detail.name, event.detail.properties);
+        }) as EventListener);
+      }
+    </script>
+    <script>
       document.addEventListener("DOMContentLoaded", () => {
         const els = Array.from(document.querySelectorAll<HTMLElement>(".reveal"));
         if (!("IntersectionObserver" in window) || els.length === 0) {
